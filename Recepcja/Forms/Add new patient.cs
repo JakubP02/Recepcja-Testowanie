@@ -170,7 +170,7 @@ namespace Patient_Handling
 
 
 
-            if (string.IsNullOrEmpty(newPatient.FirstName) ||
+           /* if (string.IsNullOrEmpty(newPatient.FirstName) ||
                   string.IsNullOrEmpty(newPatient.LastName) ||
                   string.IsNullOrEmpty(newPatient.Birthdate.ToString()) ||
                   string.IsNullOrEmpty(newPatient.PhoneNumber) ||
@@ -213,7 +213,7 @@ namespace Patient_Handling
                  return;
              }
 
-            
+            */
 
 
             DatabaseConnection databaseConnection = new DatabaseConnection();

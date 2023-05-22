@@ -6,6 +6,8 @@ using System.Data.SqlClient;
 using System.DirectoryServices.ActiveDirectory;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -152,28 +154,46 @@ namespace Patient_handling
         }
         private void button_Send_confirmation_Click(object sender, EventArgs e)
         {
+            /*
             if (dataGridView_lista_wizyt.SelectedRows.Count > 0)
             {
-                MedicalVisit medicalVisit = new MedicalVisit();
-                medicalVisit.ExportToPDF(dataGridView_lista_wizyt.SelectedRows[0]);
+
             }
+                MedicalVisit medicalVisit = new MedicalVisit();
+                 medicalVisit.SendConfirmation();
+            
             else
             {
                 MessageBox.Show("Proszę wybrać wizytę do eksportu.");
             }
-        }
+            */
 
+            string office = dataGridView_lista_wizyt.SelectedRows[0].Cells["OfficeNumber"].Value.ToString();
+            string date = dataGridView_lista_wizyt.SelectedRows[0].Cells["Date"].Value.ToString();
+            string time = dataGridView_lista_wizyt.SelectedRows[0].Cells["Time"].Value.ToString();
+            string pesel = dataGridView_lista_wizyt.SelectedRows[0].Cells["PatientPesel"].Value.ToString();
+            string email;
+            DatabaseConnection db = new DatabaseConnection();
+            email = db.GetPatientEmail(pesel);
+
+            MedicalVisit medicalVisit = new MedicalVisit();
+            medicalVisit.SendConfirmation(office,date,time,email);
+
+
+
+  
+        }
         private void button_Clear_the_calendar_Click(object sender, EventArgs e)
         {
             DatabaseConnection databaseConnection = new DatabaseConnection();
-            databaseConnection.LoadDataIntoDataGridView(dataGridView_lista_wizyt, "view_TodaysMedicalVisits");
+            databaseConnection.LoadDataIntoDataGridView(dataGridView_lista_wizyt, "VisitView");
         }
 
         public void dataGridView_lista_wizyt_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                string visitId = dataGridView_lista_wizyt.Rows[e.RowIndex].Cells["ID"].Value.ToString();
+                //string visitId = dataGridView_lista_wizyt.Rows[e.RowIndex].Cells["ID"].Value.ToString();
 
 
 
