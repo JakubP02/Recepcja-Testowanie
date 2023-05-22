@@ -34,10 +34,10 @@
             // labelday
             // 
             labelday.AutoSize = true;
-            labelday.Font = new Font("Microsoft JhengHei", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            labelday.Location = new Point(16, 16);
+            labelday.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelday.Location = new Point(10, 7);
             labelday.Name = "labelday";
-            labelday.Size = new Size(32, 24);
+            labelday.Size = new Size(28, 21);
             labelday.TabIndex = 0;
             labelday.Text = "00";
             // 
@@ -48,7 +48,7 @@
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(labelday);
             Name = "UserControlday";
-            Size = new Size(170, 81);
+            Size = new Size(123, 55);
             Load += UserControlday_Load;
             Click += UserControlday_Click;
             ResumeLayout(false);

@@ -1,4 +1,5 @@
 ﻿using System;
+using SharedElements.Helpers;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,12 +22,12 @@ namespace Patient_handling
         }
 
         public static string static_month, static_year;
-        
+
         private void CalenderAddNewVisit_Load(object sender, EventArgs e)
         {
 
             DisplayDay();
-
+   
 
 
         }
@@ -56,11 +57,21 @@ namespace Patient_handling
             for (int i = 1; i < day + 1; i++)
             {
                 UserControlday ucday = new UserControlday();
-                ucday.Day(i); 
+                ucday.Day(i);
                 dayContainer.Controls.Add(ucday);
+    
+                DateOnly date = new DateOnly(year, month, i);
+                if (!CalendarEntityHelper.CheckDateAndEntity(date))
+                {
+                    ucday.BackColor = Color.FromArgb(23, 35, 49);
+                    ucday.ForeColor = Color.FromArgb(23, 35, 49);
+                    ucday.changeLabelColor(Color.White);
+                }
             }
             static_month = month.ToString();
             static_year = year.ToString();
+
+            
 
         }
         private void DisplayDay()
@@ -83,10 +94,10 @@ namespace Patient_handling
                 month = 1;
                 year++;
             }
-            else 
+            else
             {
                 month++;
-       
+
             }
 
             DisplayMonthCalendar();

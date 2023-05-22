@@ -45,7 +45,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(label1);
             Name = "UserControlBlank";
-            Size = new Size(172, 81);
+            Size = new Size(123, 55);
             Load += UserControlBlank_Load;
             ResumeLayout(false);
             PerformLayout();

@@ -25,7 +25,7 @@ namespace Patient_handling
         }
         public void Day(int numday)
         {
-            labelday.Text = numday + "" ;
+            labelday.Text = numday + "";
         }
 
         public void UserControlday_Click(object sender, EventArgs e)
@@ -34,7 +34,12 @@ namespace Patient_handling
             addNewVisit addnewvisit = new addNewVisit();
             addnewvisit.Show();
 
-            
+
+        }
+
+        public void changeLabelColor(Color color)
+        {
+            labelday.ForeColor = color;
         }
     }
 }
