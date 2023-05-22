@@ -23,7 +23,7 @@ namespace Patient_handling
             InitializeComponent();
 
             DatabaseConnection database = new DatabaseConnection();
-            database.LoadDataIntoDataGridView(dataGridView_lista_wizyt, "view_listMedicalVisit");
+            database.LoadDataIntoDataGridView(dataGridView_lista_wizyt, "Visitview");
 
             if (dataGridView_lista_wizyt.Rows.Count > 0)
             {

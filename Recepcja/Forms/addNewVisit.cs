@@ -43,7 +43,7 @@ namespace Patient_handling
 
 
 
-            databaseConnection.LoadDataIntoDataGridViewCalendar(dataGridView_patients, "view_CalendarEntity", date);
+            databaseConnection.LoadDataIntoDataGridViewCalendar(dataGridView_patients, "CalendarView", date);
         }
 
         private void button_add_visit_Click(object sender, EventArgs e)

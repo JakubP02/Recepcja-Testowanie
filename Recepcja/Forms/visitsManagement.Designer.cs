@@ -47,13 +47,13 @@
             dataGridView_lista_wizyt.RowHeadersWidth = 51;
             dataGridView_lista_wizyt.RowTemplate.Height = 25;
             dataGridView_lista_wizyt.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView_lista_wizyt.Size = new Size(588, 150);
+            dataGridView_lista_wizyt.Size = new Size(588, 645);
             dataGridView_lista_wizyt.TabIndex = 0;
             dataGridView_lista_wizyt.CellContentClick += dataGridView_lista_wizyt_CellContentClick;
             // 
             // button_cancel_visit
             // 
-            button_cancel_visit.Location = new Point(29, 230);
+            button_cancel_visit.Location = new Point(27, 716);
             button_cancel_visit.Name = "button_cancel_visit";
             button_cancel_visit.Size = new Size(85, 26);
             button_cancel_visit.TabIndex = 4;
@@ -63,7 +63,7 @@
             // 
             // button_Send_confirmation
             // 
-            button_Send_confirmation.Location = new Point(236, 230);
+            button_Send_confirmation.Location = new Point(234, 716);
             button_Send_confirmation.Name = "button_Send_confirmation";
             button_Send_confirmation.Size = new Size(125, 26);
             button_Send_confirmation.TabIndex = 5;
@@ -83,7 +83,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(499, 230);
+            button1.Location = new Point(497, 716);
             button1.Name = "button1";
             button1.Size = new Size(118, 26);
             button1.TabIndex = 7;
@@ -95,7 +95,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(680, 315);
+            ClientSize = new Size(648, 772);
             Controls.Add(button1);
             Controls.Add(button_Clear_the_calendar);
             Controls.Add(button_Send_confirmation);
