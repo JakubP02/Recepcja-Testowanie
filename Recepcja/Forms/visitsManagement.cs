@@ -177,16 +177,16 @@ namespace Patient_handling
             email = db.GetPatientEmail(pesel);
 
             MedicalVisit medicalVisit = new MedicalVisit();
-            medicalVisit.SendConfirmation(office,date,time,email);
+            medicalVisit.SendConfirmation(office, date, time, email);
 
 
 
-  
+
         }
         private void button_Clear_the_calendar_Click(object sender, EventArgs e)
         {
             DatabaseConnection databaseConnection = new DatabaseConnection();
-            databaseConnection.LoadDataIntoDataGridView(dataGridView_lista_wizyt, "VisitView");
+            databaseConnection.LoadDataIntoDataGridView(dataGridView_lista_wizyt, "VisitViewClearCalendar");
         }
 
         public void dataGridView_lista_wizyt_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -210,6 +210,16 @@ namespace Patient_handling
             }
         }
 
+        private void btnSearchVisit_Click(object sender, EventArgs e)
+        {
+            string searchText = txtPesel.Text;
+            string columnName = "PatientPesel";
 
+            DatabaseConnection databaseConnection = new DatabaseConnection();
+            databaseConnection.SearchDataInView(searchText, "VisitView", dataGridView_lista_wizyt, columnName);
+
+
+
+        }
     }
 }

@@ -31,14 +31,14 @@ namespace Patient_handling
                 {
                     connection.Open();
 
-                    string query = $"SELECT * FROM {tableName}"; 
+                    string query = $"SELECT * FROM {tableName}";
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
                     DataTable dataTable = new DataTable();
                     dataAdapter.Fill(dataTable);
 
 
 
-                    dataGridView.DataSource = dataTable; 
+                    dataGridView.DataSource = dataTable;
 
                     connection.Close();
                 }
@@ -133,7 +133,7 @@ namespace Patient_handling
                     }
                     readerPatients.Close();
 
-               
+
                 }
             }
             catch (Exception ex)
@@ -194,7 +194,7 @@ namespace Patient_handling
 
         public int GetPatientId(string patientName)
         {
-     
+
             string[] nameParts = patientName.Split(' ');
             string firstName = nameParts[0];
             string lastName = nameParts[1];
@@ -397,5 +397,32 @@ namespace Patient_handling
         }
 
 
+        public void SearchDataInView(string searchText, string viewName, DataGridView dataGridView, string columnName)
+        {
+            try
+            {
+                connection.Open();
+
+                string query = $"SELECT * FROM {viewName} WHERE {columnName} = @SearchText";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@SearchText", searchText);
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    dataGridView.DataSource = dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Wystąpił błąd: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

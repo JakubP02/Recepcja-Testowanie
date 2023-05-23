@@ -33,6 +33,9 @@
             button_Send_confirmation = new Button();
             button_Clear_the_calendar = new Button();
             button1 = new Button();
+            label6 = new Label();
+            txtPesel = new TextBox();
+            btnSearchVisit = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView_lista_wizyt).BeginInit();
             SuspendLayout();
             // 
@@ -47,7 +50,7 @@
             dataGridView_lista_wizyt.RowHeadersWidth = 51;
             dataGridView_lista_wizyt.RowTemplate.Height = 25;
             dataGridView_lista_wizyt.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView_lista_wizyt.Size = new Size(588, 645);
+            dataGridView_lista_wizyt.Size = new Size(608, 645);
             dataGridView_lista_wizyt.TabIndex = 0;
             dataGridView_lista_wizyt.CellContentClick += dataGridView_lista_wizyt_CellContentClick;
             // 
@@ -63,7 +66,7 @@
             // 
             // button_Send_confirmation
             // 
-            button_Send_confirmation.Location = new Point(234, 716);
+            button_Send_confirmation.Location = new Point(263, 716);
             button_Send_confirmation.Name = "button_Send_confirmation";
             button_Send_confirmation.Size = new Size(125, 26);
             button_Send_confirmation.TabIndex = 5;
@@ -83,7 +86,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(497, 716);
+            button1.Location = new Point(519, 716);
             button1.Name = "button1";
             button1.Size = new Size(118, 26);
             button1.TabIndex = 7;
@@ -91,11 +94,40 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(679, 158);
+            label6.Name = "label6";
+            label6.Size = new Size(38, 15);
+            label6.TabIndex = 28;
+            label6.Text = "PESEL";
+            // 
+            // txtPesel
+            // 
+            txtPesel.Location = new Point(679, 176);
+            txtPesel.Name = "txtPesel";
+            txtPesel.Size = new Size(160, 23);
+            txtPesel.TabIndex = 27;
+            // 
+            // btnSearchVisit
+            // 
+            btnSearchVisit.Location = new Point(679, 205);
+            btnSearchVisit.Name = "btnSearchVisit";
+            btnSearchVisit.Size = new Size(159, 23);
+            btnSearchVisit.TabIndex = 29;
+            btnSearchVisit.Text = "Search";
+            btnSearchVisit.UseVisualStyleBackColor = true;
+            btnSearchVisit.Click += btnSearchVisit_Click;
+            // 
             // ZarzadzanieWizytami
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(648, 772);
+            ClientSize = new Size(1142, 791);
+            Controls.Add(btnSearchVisit);
+            Controls.Add(label6);
+            Controls.Add(txtPesel);
             Controls.Add(button1);
             Controls.Add(button_Clear_the_calendar);
             Controls.Add(button_Send_confirmation);
@@ -106,6 +138,7 @@
             Load += ZarządzanieWizytami_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView_lista_wizyt).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -115,5 +148,8 @@
         private Button button_Send_confirmation;
         private Button button_Clear_the_calendar;
         private Button button1;
+        private Label label6;
+        private TextBox txtPesel;
+        private Button btnSearchVisit;
     }
 }
