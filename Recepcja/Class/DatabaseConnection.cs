@@ -259,14 +259,15 @@ namespace Patient_handling
                 {
                     connection.Open();
 
-                    string query = $"SELECT * FROM {tableName} WHERE Date = @ComparisonDate"; // zapytanie SQL z warunkiem WHERE
+                    string query = $"SELECT * FROM {tableName} WHERE Date = @ComparisonDate"; 
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
                     dataAdapter.SelectCommand.Parameters.AddWithValue("@ComparisonDate", comparisonDate);
 
                     DataTable dataTable = new DataTable();
                     dataAdapter.Fill(dataTable);
 
-                    dataGridView.DataSource = dataTable; // ustawienie źródła danych dla DataGridView
+                    dataGridView.DataSource = dataTable;
+                    dataGridView.Columns["Id"].Visible = false;
 
                     connection.Close();
                 }
@@ -325,6 +326,7 @@ namespace Patient_handling
                     adapter.Fill(dataTable);
 
                     dataGridView.DataSource = dataTable;
+                    dataGridView.Columns["Id"].Visible = false;
                 }
             }
             catch (Exception ex)
@@ -362,5 +364,47 @@ namespace Patient_handling
                 connection.Close();
             }
         }
+
+        public int GetPatientIdByPesel(string pesel)
+        {
+            int patientId = -1;
+
+            try
+            {
+                connection.Open();
+                string query = "SELECT ID FROM Patients WHERE Pesel = @Pesel";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Pesel", pesel);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    patientId = Convert.ToInt32(reader["ID"]);
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return patientId;
+        }
     }
+
+
+
+
+
+
+
 }
+
+
+

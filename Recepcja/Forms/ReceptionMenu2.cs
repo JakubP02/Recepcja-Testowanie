@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.DataFormats;
 using System.Data.SqlClient;
-
+using Recepcja.Forms;
 
 namespace Patient_handling
 {
@@ -99,8 +99,8 @@ namespace Patient_handling
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // addNewVisit add = new addNewVisit();
-            CalenderAddNewVisit add = new CalenderAddNewVisit();
+  
+            FormSelectPatientToVisit add = new FormSelectPatientToVisit();
             add.TopLevel = false;
             add.FormBorderStyle = FormBorderStyle.None;
             add.Dock = DockStyle.Fill;
