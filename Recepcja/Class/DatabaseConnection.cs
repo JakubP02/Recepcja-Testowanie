@@ -40,6 +40,8 @@ namespace Patient_handling
 
                     dataGridView.DataSource = dataTable;
 
+                    //dataGridView.Columns["Id"].Visible = false;
+
                     connection.Close();
                 }
             }
@@ -247,96 +249,6 @@ namespace Patient_handling
 
             return doctorId;
         }
-        /*
-       public bool DeleteDataFromDatabase(string tableName, string condition)
-       {
-           bool result = false;
-
-           // Tworzymy połączenie z bazą danych
-           using (SqlConnection connection = new SqlConnection(connectionString))
-           {
-               try
-               {
-                   // Otwieramy połączenie
-                   connection.Open();
-
-                   // Tworzymy zapytanie SQL usuwające wiersze z podanej tabeli spełniające podany warunek
-                   string query = $"DELETE FROM {tableName} WHERE {condition}";
-
-                   // Tworzymy nowy obiekt SqlCommand z zapytaniem i połączeniem
-                   SqlCommand command = new SqlCommand(query, connection);
-
-                   // Wykonujemy zapytanie
-                   int rowsAffected = command.ExecuteNonQuery();
-
-                   // Sprawdzamy, czy coś zostało usunięte
-                   if (rowsAffected > 0)
-                   {
-                       result = true;
-                   }
-               }
-               catch (Exception ex)
-               {
-                   // Obsługujemy wyjątek
-                   Console.WriteLine(ex.Message);
-               }
-           }
-
-           return result;
-       }
-       */
-
-
-
-
-        /* public void DisplayVisits(TextBox doctorNameTextBox, TextBox patientNameTextBox,
-                   TextBox officeNumberTextBox, TextBox dateTextBox, TextBox timeTextBox, string visitId)
-          {
-              try
-              {
-
-                  using (SqlConnection connection = new SqlConnection(connectionString))
-                  {
-                      connection.Open();
-                      SqlCommand command = new SqlCommand("SELECT e.FirstName + ' ' + e.LastName AS DoctorName, " +
-                          "p.FirstName + ' ' + p.LastName AS PatientName, " +
-                          "o.Number AS OfficeNumber, " +
-                          "c.Date, " +
-                          "c.Time " +
-                          "FROM CalendarEntity c " +
-                          "JOIN Employees e ON e.Id = c.DoctorId " +
-                          "JOIN MedicalVisit m ON m.ID = c.CalendarId " +
-                          "JOIN Employees p ON p.Id = m.PatientID " +
-                          "JOIN Offices o ON o.Id = c.OfficeId " +
-                          "WHERE m.ID = @visitId", connection);
-                      command.Parameters.AddWithValue("@visitId", visitId);
-                      SqlDataReader reader = command.ExecuteReader();
-                      if (reader.Read())
-                      {
-                          string doctorName = reader["DoctorName"].ToString();
-                          string patientName = reader["PatientName"].ToString();
-                          string officeNumber = reader["OfficeNumber"].ToString();
-                          string date = reader["Date"].ToString();
-                          string time = reader["Time"].ToString();
-
-                          doctorNameTextBox.Text = doctorName;
-                          patientNameTextBox.Text = patientName;
-                          officeNumberTextBox.Text = officeNumber;
-                          dateTextBox.Text = date;
-                          timeTextBox.Text = time;
-                      }
-                      reader.Close();
-                  }
-              }
-              catch (Exception ex)
-              {
-                  // Obsługa wyjątku - np. wyświetlenie komunikatu o błędzie
-                  MessageBox.Show("Error: " + ex.Message);
-              }
-
-
-
-          }*/
 
 
         public void LoadDataIntoDataGridViewCalendar(DataGridView dataGridView, string tableName, DateTime comparisonDate)

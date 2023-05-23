@@ -69,7 +69,7 @@ namespace Patient_handling
 
         private void button_cancel_visit_Click(object sender, EventArgs e)
         {
-            int selcetedcalendarId = Convert.ToInt32(dataGridView_lista_wizyt.SelectedRows[0].Cells["ID"].Value);
+            /*int selcetedcalendarId = Convert.ToInt32(dataGridView_lista_wizyt.SelectedRows[0].Cells["ID"].Value);
             int selcetedVisitStatus = Convert.ToInt32(dataGridView_lista_wizyt.SelectedRows[0].Cells["Status"].Value);
 
 
@@ -140,6 +140,18 @@ namespace Patient_handling
 
                 }
             }
+            */
+            string selectedCalendarId = dataGridView_lista_wizyt.SelectedRows[0].Cells["Id"].Value.ToString();
+
+            DatabaseConnection databaseConnection = new DatabaseConnection();
+
+            string[] columnNames = { "PatientId" };
+            string[] columnValues = { "NULL" };
+            string condition = $"Id = {selectedCalendarId}";
+            databaseConnection.UpdateDataInDatabase("CalendarEntity", columnNames, columnValues, condition);
+
+            databaseConnection.LoadDataIntoDataGridView(dataGridView_lista_wizyt, "visitview");
+
 
 
 
