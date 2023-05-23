@@ -69,87 +69,10 @@ namespace Patient_handling
 
         private void button_cancel_visit_Click(object sender, EventArgs e)
         {
-            /*int selcetedcalendarId = Convert.ToInt32(dataGridView_lista_wizyt.SelectedRows[0].Cells["ID"].Value);
-            int selcetedVisitStatus = Convert.ToInt32(dataGridView_lista_wizyt.SelectedRows[0].Cells["Status"].Value);
-
-
-            DateTime selectedDate = (DateTime)dataGridView_lista_wizyt.SelectedRows[0].Cells["Date"].Value;
-            TimeSpan selectedTime = (TimeSpan)dataGridView_lista_wizyt.SelectedRows[0].Cells["Hour"].Value;
-
-            string fullName = dataGridView_lista_wizyt.SelectedRows[0].Cells["DoctorName"].Value.ToString();
-            string[] nameParts = fullName.Split(' ');
-
-            string firstName = nameParts[0];
-            string lastName = nameParts[1];
-
-
-            if (selcetedVisitStatus == 0)
-            {
-                MessageBox.Show("this visit is already cancel");
-                return;
-
-            }
-
+           
+            int selcetedcalendarId = Convert.ToInt32(dataGridView_lista_wizyt.SelectedRows[0].Cells["ID"].Value);
             DatabaseConnection databaseConnection = new DatabaseConnection();
-
-            string[] columnNames = { "Status" };
-            string[] columnValues = { "0" };
-            string condition = $"ID = {selcetedcalendarId}";
-            databaseConnection.UpdateDataInDatabase("MedicalVisit", columnNames, columnValues, condition);
-
-
-            DatabaseConnection databaseConnection1 = new DatabaseConnection();
-
-            databaseConnection1.LoadDataIntoDataGridView(dataGridView_lista_wizyt, "view_listMedicalVisit");
-
-
-
-
-
-
-
-
-
-            using (SqlConnection connection = new SqlConnection("Data Source=localhost;Initial Catalog=testowanie;Integrated Security=True;"))
-            {
-                connection.Open();
-
-                string query = "SELECT Id FROM Employees WHERE FirstName = @FirstName AND LastName = @LastName";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@FirstName", firstName);
-                    command.Parameters.AddWithValue("@LastName", lastName);
-
-                    int doctorId = -1;
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            doctorId = reader.GetInt32(0);
-                        }
-                    }
-
-                    DatabaseConnection databaseConnection3 = new DatabaseConnection();
-
-                    string[] columnNames1 = { "Status" };
-                    string[] columnValues1 = { "" };
-                    string condition1 = $"Date = '{selectedDate.ToString("yyyy-MM-dd")}' AND Time = '{selectedTime.ToString(@"hh\:mm\:ss")}' AND doctorid ='{doctorId}'";
-
-                    databaseConnection3.UpdateDataInDatabase("CalendarEntity", columnNames1, columnValues1, condition1);
-
-                }
-            }
-            */
-            string selectedCalendarId = dataGridView_lista_wizyt.SelectedRows[0].Cells["Id"].Value.ToString();
-
-            DatabaseConnection databaseConnection = new DatabaseConnection();
-
-            string[] columnNames = { "PatientId" };
-            string[] columnValues = { "NULL" };
-            string condition = $"Id = {selectedCalendarId}";
-            databaseConnection.UpdateDataInDatabase("CalendarEntity", columnNames, columnValues, condition);
-
+            databaseConnection.UpdateCalendarEntity(selcetedcalendarId);
             databaseConnection.LoadDataIntoDataGridView(dataGridView_lista_wizyt, "visitview");
 
 

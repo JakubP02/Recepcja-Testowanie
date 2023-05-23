@@ -40,7 +40,7 @@ namespace Patient_handling
 
                     dataGridView.DataSource = dataTable;
 
-                    //dataGridView.Columns["Id"].Visible = false;
+                    dataGridView.Columns["Id"].Visible = false;
 
                     connection.Close();
                 }
@@ -330,6 +330,32 @@ namespace Patient_handling
             catch (Exception ex)
             {
                 MessageBox.Show("Wystąpił błąd: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+
+        public void UpdateCalendarEntity(int entityId)
+        {
+            try
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("UpdateCalendarEntity", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@EntityId", entityId);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+             
+                Console.WriteLine("Wystąpił błąd: " + ex.Message);
             }
             finally
             {
