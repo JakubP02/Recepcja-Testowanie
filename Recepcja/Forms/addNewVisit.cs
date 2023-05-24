@@ -19,17 +19,9 @@ namespace Patient_handling
         private Dictionary<int, string> _patientIdsAndNames;
         private Dictionary<int, string> _doctorIdsAndNames;
 
-        public addNewVisit()
+        private void RefreshDataGridView()
         {
-            InitializeComponent();
-
-
-            //comboBox_hour_add.Items.AddRange(listaStringow.ToArray());
-
             DatabaseConnection databaseConnection = new DatabaseConnection();
-
-
-
             string day = UserControlday.static_day;
             string month = CalenderAddNewVisit.static_month;
             string year = CalenderAddNewVisit.static_year;
@@ -47,18 +39,28 @@ namespace Patient_handling
             databaseConnection.LoadDataIntoDataGridViewCalendar(dataGridView_patients, "CalendarView", date);
         }
 
+        public addNewVisit()
+        {
+            InitializeComponent();
+
+
+  
+            RefreshDataGridView();
+
+        }
+
         private void button_add_visit_Click(object sender, EventArgs e)
         {
             DateTime currentDate = DateTime.Today;
             DateTime cellDate = (DateTime)dataGridView_patients.SelectedRows[0].Cells["Date"].Value ;
 
-           /* if (dataGridView_patients.SelectedRows[0].Cells["PatientName"].Value ) 
+            if (dataGridView_patients.SelectedRows[0].Cells["PatientName"].Value != null ) 
             {
                 MessageBox.Show("the date of the selected visit is already taken");
                 return;
             }
 
-            */
+            
             if (cellDate < currentDate)
             {
                 MessageBox.Show("you can't add a visit in the past");
@@ -84,7 +86,7 @@ namespace Patient_handling
 
             databaseConnection.UpdateDataInDatabase("CalendarEntity", columnName, columnValue, condition);
 
-
+            RefreshDataGridView();
 
 
 

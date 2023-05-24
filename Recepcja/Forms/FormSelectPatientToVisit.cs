@@ -13,7 +13,7 @@ namespace Recepcja.Forms
 {
     public partial class FormSelectPatientToVisit : Form
     {
-        public static string pesel;
+        private static string pesel;
         public FormSelectPatientToVisit()
         {
             InitializeComponent();
