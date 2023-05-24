@@ -16,39 +16,43 @@ namespace Patient_handling
         {
             InitializeComponent();
 
-            List<string> listaStringow = new List<string>();
-            listaStringow.Add("08:30");
-            listaStringow.Add("09:00");
-            listaStringow.Add("09:30");
-            listaStringow.Add("10:00");
-            listaStringow.Add("10:30");
-            listaStringow.Add("11:00");
-            listaStringow.Add("11:30");
-            listaStringow.Add("12:00");
-            listaStringow.Add("12:30");
-            listaStringow.Add("13:00");
-            listaStringow.Add("13:30");
-            listaStringow.Add("14:00");
-            listaStringow.Add("14:30");
-            listaStringow.Add("15:00");
-            listaStringow.Add("15:30");
-            listaStringow.Add("16:00");
-            listaStringow.Add("16:30");
-            listaStringow.Add("17:00");
-            listaStringow.Add("17:30");
-            listaStringow.Add("18:00");
-            listaStringow.Add("18:30");
-            listaStringow.Add("19:00");
-            listaStringow.Add("19:30");
 
-            comboBox_edit_apointment.Items.AddRange(listaStringow.ToArray());
 
-            DatabaseConnection database = new DatabaseConnection();
-            database.LoadDataIntoDataGridView(dataGridView_lista_wizyt, "MedicalVisit");
+            DatabaseConnection databaseConnection = new DatabaseConnection();
+            databaseConnection.LoadDataIntoDataGridView(dataGridView_lista_wizyt, "VisitViewClearCalendar");
         }
 
         private void EditAppointment_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnSearchVisit_Click(object sender, EventArgs e)
+        {
+            string searchText = txtPesel.Text;
+            string columnName = "PatientPesel";
+
+            DatabaseConnection databaseConnection = new DatabaseConnection();
+            databaseConnection.SearchDataInView(searchText, "VisitView", dataGridView_lista_wizyt, columnName);
+        }
+
+        private void btnEditVisit_Click(object sender, EventArgs e)
+        {
+            CalenderAddNewVisit form_VisitDetails = new CalenderAddNewVisit();
+            form_VisitDetails.TopLevel = false;
+            form_VisitDetails.FormBorderStyle = FormBorderStyle.None;
+            form_VisitDetails.Dock = DockStyle.Fill;
+            form_ReceptionMenu2 receptionMenu2 = Application.OpenForms["form_ReceptionMenu2"] as form_ReceptionMenu2;
+            receptionMenu2.panel1.Controls.Add(form_VisitDetails);
+            receptionMenu2.panel1.Tag = form_VisitDetails;
+            form_VisitDetails.BringToFront();
+            form_VisitDetails.Show();
+
+
+
+
+
+
 
         }
     }

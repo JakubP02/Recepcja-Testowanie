@@ -39,6 +39,7 @@
             label13 = new Label();
             label14 = new Label();
             dayContainer = new FlowLayoutPanel();
+            btnCancel = new Button();
             SuspendLayout();
             // 
             // button_next
@@ -142,11 +143,22 @@
             dayContainer.Size = new Size(906, 381);
             dayContainer.TabIndex = 45;
             // 
+            // btnCancel
+            // 
+            btnCancel.Location = new Point(759, 521);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(165, 23);
+            btnCancel.TabIndex = 53;
+            btnCancel.Text = "cancel";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
+            // 
             // CalenderAddNewVisit
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(976, 544);
+            ClientSize = new Size(976, 573);
+            Controls.Add(btnCancel);
             Controls.Add(label1);
             Controls.Add(label9);
             Controls.Add(label10);
@@ -177,5 +189,6 @@
         private Label label13;
         private Label label14;
         private FlowLayoutPanel dayContainer;
+        private Button btnCancel;
     }
 }

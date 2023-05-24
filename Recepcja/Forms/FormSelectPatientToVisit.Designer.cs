@@ -54,6 +54,7 @@
             dataGridView_patients.TabIndex = 48;
             dataGridView_patients.VirtualMode = true;
             dataGridView_patients.CellClick += dataGridView_patients_CellClick;
+            dataGridView_patients.CellContentClick += dataGridView_patients_CellContentClick;
             dataGridView_patients.SelectionChanged += dataGridView_patients_SelectionChanged;
             // 
             // label6

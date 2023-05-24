@@ -69,7 +69,7 @@ namespace Patient_handling
 
         private void button_cancel_visit_Click(object sender, EventArgs e)
         {
-           
+
             int selcetedcalendarId = Convert.ToInt32(dataGridView_lista_wizyt.SelectedRows[0].Cells["ID"].Value);
             DatabaseConnection databaseConnection = new DatabaseConnection();
             databaseConnection.UpdateCalendarEntity(selcetedcalendarId);
@@ -89,7 +89,7 @@ namespace Patient_handling
         }
         private void button_Send_confirmation_Click(object sender, EventArgs e)
         {
-          
+
 
             string office = dataGridView_lista_wizyt.SelectedRows[0].Cells["OfficeNumber"].Value.ToString();
             string date = dataGridView_lista_wizyt.SelectedRows[0].Cells["Date"].Value.ToString();
@@ -143,6 +143,15 @@ namespace Patient_handling
 
 
 
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPesel_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }

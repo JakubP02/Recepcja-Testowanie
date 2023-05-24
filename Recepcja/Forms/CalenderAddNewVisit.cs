@@ -27,7 +27,7 @@ namespace Patient_handling
         {
 
             DisplayDay();
-   
+
 
 
         }
@@ -59,7 +59,7 @@ namespace Patient_handling
                 UserControlday ucday = new UserControlday();
                 ucday.Day(i);
                 dayContainer.Controls.Add(ucday);
-    
+
                 DateOnly date = new DateOnly(year, month, i);
                 if (!CalendarEntityHelper.CheckDateAndEntity(date))
                 {
@@ -71,7 +71,7 @@ namespace Patient_handling
             static_month = month.ToString();
             static_year = year.ToString();
 
-            
+
 
         }
         private void DisplayDay()
@@ -139,6 +139,11 @@ namespace Patient_handling
         private void label_date_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

@@ -102,6 +102,7 @@
             label6.Size = new Size(38, 15);
             label6.TabIndex = 28;
             label6.Text = "PESEL";
+            label6.Click += label6_Click;
             // 
             // txtPesel
             // 
@@ -109,6 +110,7 @@
             txtPesel.Name = "txtPesel";
             txtPesel.Size = new Size(160, 23);
             txtPesel.TabIndex = 27;
+            txtPesel.TextChanged += txtPesel_TextChanged;
             // 
             // btnSearchVisit
             // 

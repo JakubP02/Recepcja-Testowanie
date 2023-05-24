@@ -52,22 +52,22 @@ namespace Patient_handling
         {
             DateTime currentDate = DateTime.Today;
             DateTime cellDate = (DateTime)dataGridView_patients.SelectedRows[0].Cells["Date"].Value ;
+            /*
+                       if (dataGridView_patients.SelectedRows[0].Cells["PatientName"].Value != null ) 
+                       {
+                           MessageBox.Show("the date of the selected visit is already taken");
+                           return;
+                       }
+              
 
-            if (dataGridView_patients.SelectedRows[0].Cells["PatientName"].Value != null ) 
-            {
-                MessageBox.Show("the date of the selected visit is already taken");
-                return;
-            }
+                       if (cellDate < currentDate)
+                       {
+                           MessageBox.Show("you can't add a visit in the past");
+                           return;
 
-            
-            if (cellDate < currentDate)
-            {
-                MessageBox.Show("you can't add a visit in the past");
-                return;
-         
-            }
+                       }
 
-
+                       */
             string pesel;
             int id;
             string idVisit = dataGridView_patients.SelectedRows[0].Cells["id"].Value.ToString();

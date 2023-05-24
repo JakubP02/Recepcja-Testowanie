@@ -18,6 +18,9 @@ namespace Recepcja.Forms
         {
             InitializeComponent();
 
+            DatabaseConnection databaseConnection = new DatabaseConnection();
+            databaseConnection.LoadDataIntoDataGridView(dataGridView_patients, "Patients");
+
         }
 
         public string Pesel { get => pesel; set => pesel = value; }
@@ -66,6 +69,11 @@ namespace Recepcja.Forms
         }
 
         private void FormSelectPatientToVisit_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView_patients_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
