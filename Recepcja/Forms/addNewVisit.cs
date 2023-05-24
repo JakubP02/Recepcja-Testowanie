@@ -16,8 +16,7 @@ namespace Patient_handling
 {
     public partial class addNewVisit : Form
     {
-        private Dictionary<int, string> _patientIdsAndNames;
-        private Dictionary<int, string> _doctorIdsAndNames;
+
 
         private void RefreshDataGridView()
         {

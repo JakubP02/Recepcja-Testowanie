@@ -113,7 +113,7 @@ namespace Patient_handling
                 {
                     connection.Open();
 
-                    // Pobieranie pacjentów
+              
                     string queryPatients = "SELECT Id, FirstName, LastName FROM Patients";
                     SqlCommand commandPatients = new SqlCommand(queryPatients, connection);
                     SqlDataReader readerPatients = commandPatients.ExecuteReader();
@@ -146,30 +146,6 @@ namespace Patient_handling
             return (patientIdsAndNames, doctorIdsAndNames);
         }
 
-
-        public DataTable FilterData(string tableName, Dictionary<string, string> filters)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                string query = $"SELECT * FROM {tableName}";
-
-                if (filters.Count > 0)
-                {
-                    query += " WHERE ";
-                    query += string.Join(" AND ", filters.Select(f => $"{f.Key} LIKE '{f.Value}'"));
-                }
-
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
-                DataTable dataTable = new DataTable();
-                dataAdapter.Fill(dataTable);
-
-                connection.Close();
-
-                return dataTable;
-            }
-        }
         public DataTable ExecuteQuery(string query)
         {
             DataTable dataTable = new DataTable();
@@ -192,62 +168,6 @@ namespace Patient_handling
             }
 
             return dataTable;
-        }
-
-        public int GetPatientId(string patientName)
-        {
-
-            string[] nameParts = patientName.Split(' ');
-            string firstName = nameParts[0];
-            string lastName = nameParts[1];
-
-
-            int patientId = 0;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand("SELECT ID FROM Patients WHERE FirstName=@firstName AND LastName=@lastName", connection);
-                command.Parameters.AddWithValue("@firstName", firstName);
-                command.Parameters.AddWithValue("@lastName", lastName);
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    patientId = reader.GetInt32(0);
-                }
-
-                reader.Close();
-
-            }
-
-            return patientId;
-        }
-
-        public int GetDoctorId(string doctorName)
-        {
-            // Odseparuj imię i nazwisko pacjenta
-            string[] nameParts = doctorName.Split(' ');
-            string firstName = nameParts[0];
-            string lastName = nameParts[1];
-
-            // Pobierz id pacjenta z bazy
-            int doctorId = 0;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand("SELECT ID FROM Employees WHERE FirstName=@firstName AND LastName=@lastName", connection);
-                command.Parameters.AddWithValue("@firstName", firstName);
-                command.Parameters.AddWithValue("@lastName", lastName);
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    doctorId = reader.GetInt32(0);
-                }
-
-                reader.Close();
-
-            }
-
-            return doctorId;
         }
 
 

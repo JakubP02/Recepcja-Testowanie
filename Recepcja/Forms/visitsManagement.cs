@@ -89,19 +89,7 @@ namespace Patient_handling
         }
         private void button_Send_confirmation_Click(object sender, EventArgs e)
         {
-            /*
-            if (dataGridView_lista_wizyt.SelectedRows.Count > 0)
-            {
-
-            }
-                MedicalVisit medicalVisit = new MedicalVisit();
-                 medicalVisit.SendConfirmation();
-            
-            else
-            {
-                MessageBox.Show("Proszę wybrać wizytę do eksportu.");
-            }
-            */
+          
 
             string office = dataGridView_lista_wizyt.SelectedRows[0].Cells["OfficeNumber"].Value.ToString();
             string date = dataGridView_lista_wizyt.SelectedRows[0].Cells["Date"].Value.ToString();

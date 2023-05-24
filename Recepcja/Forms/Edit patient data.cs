@@ -42,36 +42,7 @@ namespace Patient_Handling
 
         private void button_edit_patient_form_Click(object sender, EventArgs e)
         {
-            /* if (string.IsNullOrEmpty(textBox_form_edit_patient_last_name.Text) ||
-                 string.IsNullOrEmpty(textBox_form_edit_patient_phone_number.Text) ||
-                 string.IsNullOrEmpty(textBox_form_edit_patient_adress.Text) ||
-                 string.IsNullOrEmpty(textBox_form_edit_patient_residential_adress.Text))
-             {
-                 MessageBox.Show("Wszystkie pola muszą być wypełnione.");
-                 return;
-             }
-
-             if (!System.Text.RegularExpressions.Regex.IsMatch(textBox_form_edit_patient_phone_number.Text, @"^\+?[0-9]{3}-?[0-9]{3}-?[0-9]{3}$"))
-             {
-                 MessageBox.Show("Numer telefonu musi składać się z dziewięciu cyfr.");
-                 return;
-             }
-
-             if (!System.Text.RegularExpressions.Regex.IsMatch(textBox_form_edit_patient_adress.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-             {
-                 MessageBox.Show("Adres email jest nieprawidłowy.");
-                 return;
-             }
-
-             /*_selectedPatient.LastName = textBox_form_edit_patient_last_name.Text;
-             _selectedPatient.PhoneNumber = textBox_form_edit_patient_phone_number.Text;
-             _selectedPatient.EmailAddress = textBox_form_edit_patient_adress.Text;
-             _selectedPatient.ResidentialAddress = textBox_form_edit_patient_residential_adress.Text;
-
-             this.DialogResult = DialogResult.OK;
-             this.Hide();
-
-             */
+          
 
             Patient patient = new Patient()
             {
@@ -131,10 +102,7 @@ namespace Patient_Handling
 
         private void Form_edit_patient_Load(object sender, EventArgs e)
         {
-            /*textBox_form_edit_patient_last_name.Text = _selectedPatient.LastName;
-            textBox_form_edit_patient_phone_number.Text = _selectedPatient.PhoneNumber;
-            textBox_form_edit_patient_adress.Text = _selectedPatient.EmailAddress;
-            textBox_form_edit_patient_residential_adress.Text = _selectedPatient.ResidentialAddress;*/
+    
         }
 
         private void dataGridView_patients_CellContentClick(object sender, DataGridViewCellEventArgs e)
