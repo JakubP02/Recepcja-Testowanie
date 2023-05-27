@@ -171,23 +171,69 @@ namespace Patient_handling
         }
 
 
-        public void LoadDataIntoDataGridViewCalendar(DataGridView dataGridView, string tableName, DateTime comparisonDate)
+        /* public void LoadDataIntoDataGridViewCalendar(DataGridView dataGridView, string tableName, DateTime comparisonDate)
+         {
+             try
+             {
+                 using (SqlConnection connection = new SqlConnection(connectionString))
+                 {
+                     connection.Open();
+
+                     string query = $"SELECT * FROM {tableName} WHERE Date = @ComparisonDate"; 
+                     SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
+                     dataAdapter.SelectCommand.Parameters.AddWithValue("@ComparisonDate", comparisonDate);
+
+                     DataTable dataTable = new DataTable();
+                     dataAdapter.Fill(dataTable);
+
+                     dataGridView.DataSource = dataTable;
+                     dataGridView.Columns["Id"].Visible = false;
+
+                     connection.Close();
+                 }
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show($"Wystąpił błąd podczas odczytu danych: {ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             }
+         }
+        */
+
+        public void LoadDataIntoDataGridViewCalendar(DataGridView dataGridView, string tableName, DateTime comparisonDate, int doctorId )
         {
+           
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
 
-                    string query = $"SELECT * FROM {tableName} WHERE Date = @ComparisonDate"; 
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
-                    dataAdapter.SelectCommand.Parameters.AddWithValue("@ComparisonDate", comparisonDate);
+                    string query;
+                    SqlCommand command;
+
+                    if (doctorId != 0)
+                    {
+                        query = $"SELECT * FROM {tableName} WHERE Date = @ComparisonDate AND DoctorId = @DoctorId";
+                        command = new SqlCommand(query, connection);
+                        command.Parameters.AddWithValue("@DoctorId", doctorId);
+                    }
+                    else
+                    {
+
+                        query = $"SELECT * FROM {tableName} WHERE Date = @ComparisonDate";
+                        command = new SqlCommand(query, connection);
+                    }
+
+                    command.Parameters.AddWithValue("@ComparisonDate", comparisonDate);
+
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
 
                     DataTable dataTable = new DataTable();
                     dataAdapter.Fill(dataTable);
 
                     dataGridView.DataSource = dataTable;
                     dataGridView.Columns["Id"].Visible = false;
+                    dataGridView.Columns["DoctorId"].Visible = false;
 
                     connection.Close();
                 }
@@ -197,6 +243,7 @@ namespace Patient_handling
                 MessageBox.Show($"Wystąpił błąd podczas odczytu danych: {ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         public string GetPatientEmail(string pesel)
         {
@@ -316,6 +363,38 @@ namespace Patient_handling
 
             return patientId;
         }
+
+
+
+        public void GetDoctorsByPatientId(int patientId, DataGridView dataGridView)
+        {
+            try
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("SELECT * FROM GetDoctorsByPatientId(@PatientId)", connection);
+                command.Parameters.AddWithValue("@PatientId", patientId);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable result = new DataTable();
+                adapter.Fill(result);
+
+                dataGridView.DataSource = result;
+                dataGridView.Columns["Id"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Wystąpił błąd: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+
+
     }
 
 

@@ -29,13 +29,17 @@ namespace Patient_handling
             string monthFormatted = month.PadLeft(2, '0');
 
             string dateString = year + "-" + monthFormatted + "-" + dayFormatted;
+            int doctorId;
 
 
             DateTime date = DateTime.ParseExact(dateString, "yyyy-MM-dd", CultureInfo.InvariantCulture);
 
 
+            addDoctorprompt form = new addDoctorprompt();
+            doctorId = form.DoctorId;
+    
 
-            databaseConnection.LoadDataIntoDataGridViewCalendar(dataGridView_patients, "CalendarView", date);
+            databaseConnection.LoadDataIntoDataGridViewCalendar(dataGridView_patients, "CalendarView", date,doctorId);
         }
 
         public addNewVisit()
