@@ -17,9 +17,14 @@ namespace Patient_handling
     public partial class ZarzadzanieWizytami : Form
     {
 
-        public static string patientName, doctorName, date, hour;
+        public static string office;
+        public static string patientName;
+        public static string doctorName;
+        public static string date;
+        public static string hour;
 
-        public string visitId { get; set; }
+
+
         public ZarzadzanieWizytami()
         {
             InitializeComponent();
@@ -27,13 +32,6 @@ namespace Patient_handling
             DatabaseConnection database = new DatabaseConnection();
             database.LoadDataIntoDataGridView(dataGridView_lista_wizyt, "Visitview");
 
-            if (dataGridView_lista_wizyt.Rows.Count > 0)
-            {
-                //Wywołujemy metodę CellClick dla pierwszego wiersza
-                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, 0);
-                dataGridView_lista_wizyt_CellClick(this, args);
-            }
-            this.dataGridView_lista_wizyt.SelectionChanged += new System.EventHandler(this.dataGridView_lista_wizyt_SelectionChanged);
         }
 
         private void ZarządzanieWizytami_Load(object sender, EventArgs e)
@@ -92,8 +90,8 @@ namespace Patient_handling
 
 
             string office = dataGridView_lista_wizyt.SelectedRows[0].Cells["OfficeNumber"].Value.ToString();
-            string date = dataGridView_lista_wizyt.SelectedRows[0].Cells["Date"].Value.ToString();
-            string time = dataGridView_lista_wizyt.SelectedRows[0].Cells["Time"].Value.ToString();
+            string date = ((DateTime)dataGridView_lista_wizyt.SelectedRows[0].Cells["Date"].Value).ToString("yyyy-MM-dd");
+            string time = ((TimeSpan)dataGridView_lista_wizyt.SelectedRows[0].Cells["Time"].Value).ToString("hh':'mm");
             string pesel = dataGridView_lista_wizyt.SelectedRows[0].Cells["PatientPesel"].Value.ToString();
             string email;
             DatabaseConnection db = new DatabaseConnection();
@@ -114,22 +112,16 @@ namespace Patient_handling
 
         public void dataGridView_lista_wizyt_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                //string visitId = dataGridView_lista_wizyt.Rows[e.RowIndex].Cells["ID"].Value.ToString();
-
-
-
-
-            }
+         
 
         }
         private void dataGridView_lista_wizyt_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridView_lista_wizyt.SelectedRows.Count > 0)
             {
-                DataGridViewRow selectedRow = dataGridView_lista_wizyt.SelectedRows[0];
-                UpdateTextBoxValues(selectedRow);
+          
+
+
             }
         }
 
