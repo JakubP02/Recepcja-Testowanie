@@ -44,6 +44,19 @@ namespace Recepcja.Forms
         private void dataGridView_patients_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
+            if(dataGridView_patients.SelectedRows.Count < 1) 
+            {
+                MessageBox.Show("Please Select a Patient");
+                return;
+            }
+            if ((bool)dataGridView_patients.SelectedRows[0].Cells["Status"].Value==false)
+            {
+                MessageBox.Show("this patient is inactive");
+                return;
+            }
+
+
+
             addDoctorprompt form = new addDoctorprompt();
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
