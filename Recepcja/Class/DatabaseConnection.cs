@@ -102,49 +102,7 @@ namespace Patient_handling
         }
 
 
-        public (Dictionary<int, string>, Dictionary<int, string>) LoadPatientsAndDoctorsToComboBoxes(ComboBox cbPatients)
-        {
-            Dictionary<int, string> patientIdsAndNames = new Dictionary<int, string>();
-            Dictionary<int, string> doctorIdsAndNames = new Dictionary<int, string>();
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-              
-                    string queryPatients = "SELECT Id, FirstName, LastName FROM Patients";
-                    SqlCommand commandPatients = new SqlCommand(queryPatients, connection);
-                    SqlDataReader readerPatients = commandPatients.ExecuteReader();
-                    if (readerPatients.HasRows)
-                    {
-                        while (readerPatients.Read())
-                        {
-                            int id = Convert.ToInt32(readerPatients["Id"]);
-                            string firstName = readerPatients["FirstName"].ToString();
-                            string lastName = readerPatients["LastName"].ToString();
-                            cbPatients.Items.Add($"{firstName} {lastName}");
-                            patientIdsAndNames.Add(id, $"{firstName} {lastName}");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Brak danych o pacjentach w bazie danych.");
-                        return (patientIdsAndNames, doctorIdsAndNames);
-                    }
-                    readerPatients.Close();
-
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Wystąpił błąd podczas wczytywania danych: " + ex.Message);
-            }
-
-            return (patientIdsAndNames, doctorIdsAndNames);
-        }
+    
 
         public DataTable ExecuteQuery(string query)
         {
@@ -170,34 +128,6 @@ namespace Patient_handling
             return dataTable;
         }
 
-
-        /* public void LoadDataIntoDataGridViewCalendar(DataGridView dataGridView, string tableName, DateTime comparisonDate)
-         {
-             try
-             {
-                 using (SqlConnection connection = new SqlConnection(connectionString))
-                 {
-                     connection.Open();
-
-                     string query = $"SELECT * FROM {tableName} WHERE Date = @ComparisonDate"; 
-                     SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
-                     dataAdapter.SelectCommand.Parameters.AddWithValue("@ComparisonDate", comparisonDate);
-
-                     DataTable dataTable = new DataTable();
-                     dataAdapter.Fill(dataTable);
-
-                     dataGridView.DataSource = dataTable;
-                     dataGridView.Columns["Id"].Visible = false;
-
-                     connection.Close();
-                 }
-             }
-             catch (Exception ex)
-             {
-                 MessageBox.Show($"Wystąpił błąd podczas odczytu danych: {ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-             }
-         }
-        */
 
         public void LoadDataIntoDataGridViewCalendar(DataGridView dataGridView, string tableName, DateTime comparisonDate, int doctorId )
         {
