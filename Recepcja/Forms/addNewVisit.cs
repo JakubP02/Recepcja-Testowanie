@@ -54,27 +54,34 @@ namespace Patient_handling
 
         private void button_add_visit_Click(object sender, EventArgs e)
         {
+            if (dataGridView_patients.SelectedRows.Count < 1)
+            {
+                MessageBox.Show("please select an appointment");
+                return;
+            }
             DateTime currentDate = DateTime.Today;
             DateTime cellDate = (DateTime)dataGridView_patients.SelectedRows[0].Cells["Date"].Value ;
-            /*
-                       if (dataGridView_patients.SelectedRows[0].Cells["PatientName"].Value != null ) 
-                       {
-                           MessageBox.Show("the date of the selected visit is already taken");
-                           return;
-                       }
-              
 
-                       if (cellDate < currentDate)
+            string wheterFree = dataGridView_patients.SelectedRows[0].Cells["PatientName"].Value.ToString();
+           
+
+            if (wheterFree != " ")
+            {
+                MessageBox.Show("this date is busy");
+                return;
+            }
+            if (cellDate < currentDate)
                        {
                            MessageBox.Show("you can't add a visit in the past");
                            return;
 
                        }
 
-                       */
+                       
             string pesel;
             int id;
             string idVisit = dataGridView_patients.SelectedRows[0].Cells["id"].Value.ToString();
+
 
 
             FormSelectPatientToVisit form = new FormSelectPatientToVisit();
