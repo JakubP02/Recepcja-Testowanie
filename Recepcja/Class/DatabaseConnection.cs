@@ -328,11 +328,11 @@ namespace Patient_handling
 
             if (doctorId == 0)
             {
-                query = "SELECT * FROM CalendarEntity WHERE Date = @Date";
+                query = "SELECT * FROM CalendarView WHERE Date = @Date";
             }
             else
             {
-                query = "SELECT * FROM CalendarEntity WHERE Date = @Date AND DoctorId = @DoctorId";
+                query = "SELECT * FROM CalendarView WHERE Date = @Date AND DoctorId = @DoctorId";
             }
 
             SqlCommand cmd = new SqlCommand(query, connection);
