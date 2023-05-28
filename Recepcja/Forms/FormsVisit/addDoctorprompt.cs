@@ -74,6 +74,7 @@ namespace Recepcja.Forms
 
         private void dataGridViewLastDoctor_SelectionChanged(object sender, EventArgs e)
         {
+            doctorId = 0;
             if (dataGridViewLastDoctor.SelectedRows.Count > 0)
             {
                 DoctorId = (int)dataGridViewLastDoctor.SelectedRows[0].Cells["Id"].Value;
@@ -84,6 +85,7 @@ namespace Recepcja.Forms
 
         private void btnOtherDoctors_Click(object sender, EventArgs e)
         {
+            doctorId = 0;
             CalenderAddNewVisit form_VisitDetails = new CalenderAddNewVisit();
             form_VisitDetails.TopLevel = false;
             form_VisitDetails.FormBorderStyle = FormBorderStyle.None;
@@ -93,7 +95,7 @@ namespace Recepcja.Forms
             receptionMenu2.panel1.Tag = form_VisitDetails;
             form_VisitDetails.BringToFront();
             form_VisitDetails.Show();
-            doctorId = 0;
+      
         }
     }
 }
