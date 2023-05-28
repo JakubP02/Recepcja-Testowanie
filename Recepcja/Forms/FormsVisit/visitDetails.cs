@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharedElements.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,15 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Patient_handling
 {
     public partial class form_visitDetails : Form
     {
-        public form_visitDetails()
+        public form_visitDetails(string office, string hour, string doctorName, string patientName,string date)
         {
             InitializeComponent();
-
+            textBoxDoctor.Text = doctorName;
+            textBoxpatient.Text = patientName;
+            textBoxofficess.Text = office;
+            textBoxdate.Text = date;
+            textBoxhour.Text = hour;
          
 
         }

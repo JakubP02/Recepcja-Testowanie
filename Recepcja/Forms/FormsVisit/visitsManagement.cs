@@ -47,8 +47,12 @@ namespace Patient_handling
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            form_visitDetails form_VisitDetails = new form_visitDetails();
+            if(dataGridView_lista_wizyt.Rows.Count < 1)
+            {
+                MessageBox.Show("please select a visit");
+                return;
+            }
+            form_visitDetails form_VisitDetails = new form_visitDetails(office,hour,doctorName,patientName,date);
             form_VisitDetails.TopLevel = false;
             form_VisitDetails.FormBorderStyle = FormBorderStyle.None;
             form_VisitDetails.Dock = DockStyle.Fill;
@@ -87,18 +91,25 @@ namespace Patient_handling
         }
         private void button_Send_confirmation_Click(object sender, EventArgs e)
         {
+            if (dataGridView_lista_wizyt.SelectedRows.Count > 0)
+            {
+
+                string office = dataGridView_lista_wizyt.SelectedRows[0].Cells["OfficeNumber"].Value.ToString();
+                string date = ((DateTime)dataGridView_lista_wizyt.SelectedRows[0].Cells["Date"].Value).ToString("yyyy-MM-dd");
+                string time = ((TimeSpan)dataGridView_lista_wizyt.SelectedRows[0].Cells["Time"].Value).ToString("hh':'mm");
+                string pesel = dataGridView_lista_wizyt.SelectedRows[0].Cells["PatientPesel"].Value.ToString();
+                string email;
+                DatabaseConnection db = new DatabaseConnection();
+                email = db.GetPatientEmail(pesel);
+
+                MedicalVisit medicalVisit = new MedicalVisit();
+                medicalVisit.SendConfirmation(office, date, time, email);
 
 
-            string office = dataGridView_lista_wizyt.SelectedRows[0].Cells["OfficeNumber"].Value.ToString();
-            string date = ((DateTime)dataGridView_lista_wizyt.SelectedRows[0].Cells["Date"].Value).ToString("yyyy-MM-dd");
-            string time = ((TimeSpan)dataGridView_lista_wizyt.SelectedRows[0].Cells["Time"].Value).ToString("hh':'mm");
-            string pesel = dataGridView_lista_wizyt.SelectedRows[0].Cells["PatientPesel"].Value.ToString();
-            string email;
-            DatabaseConnection db = new DatabaseConnection();
-            email = db.GetPatientEmail(pesel);
 
-            MedicalVisit medicalVisit = new MedicalVisit();
-            medicalVisit.SendConfirmation(office, date, time, email);
+            }
+
+
 
 
 
@@ -110,20 +121,7 @@ namespace Patient_handling
             databaseConnection.LoadDataIntoDataGridView(dataGridView_lista_wizyt, "VisitViewClearCalendar");
         }
 
-        public void dataGridView_lista_wizyt_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-         
-
-        }
-        private void dataGridView_lista_wizyt_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridView_lista_wizyt.SelectedRows.Count > 0)
-            {
-          
-
-
-            }
-        }
+  
 
         private void btnSearchVisit_Click(object sender, EventArgs e)
         {
@@ -144,6 +142,22 @@ namespace Patient_handling
 
         private void txtPesel_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void dataGridView_lista_wizyt_SelectionChanged_1(object sender, EventArgs e)
+        {
+            if (dataGridView_lista_wizyt.SelectedRows.Count > 0)
+            {
+                office = dataGridView_lista_wizyt.SelectedRows[0].Cells["OfficeNumber"].Value.ToString();
+                date = ((DateTime)dataGridView_lista_wizyt.SelectedRows[0].Cells["Date"].Value).ToString("yyyy-MM-dd");
+                hour = ((TimeSpan)dataGridView_lista_wizyt.SelectedRows[0].Cells["Time"].Value).ToString("hh':'mm");
+                doctorName = dataGridView_lista_wizyt.SelectedRows[0].Cells["DoctorName"].Value.ToString();
+                patientName = dataGridView_lista_wizyt.SelectedRows[0].Cells["PatientName"].Value.ToString();
+
+
+
+            }
+
         }
     }
 }

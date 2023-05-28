@@ -41,8 +41,12 @@ namespace Patient_handling
                     dataGridView.DataSource = dataTable;
 
                     dataGridView.Columns["Id"].Visible = false;
+                    if (dataGridView.Columns.Contains("DoctorId"))
+                    {
+                        dataGridView.Columns["DoctorId"].Visible = false;
+                    }
 
-                    connection.Close();
+                        connection.Close();
                 }
             }
             catch (Exception ex)

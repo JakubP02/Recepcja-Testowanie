@@ -12,6 +12,7 @@ namespace Patient_handling
 {
     public partial class EditAppointment : Form
     {
+        public string doctorid;
         public EditAppointment()
         {
             InitializeComponent();
@@ -48,7 +49,7 @@ namespace Patient_handling
             form_VisitDetails.BringToFront();
             form_VisitDetails.Show();
 
-
+            addNewVisit addNewVisit = new addNewVisit();
 
 
 

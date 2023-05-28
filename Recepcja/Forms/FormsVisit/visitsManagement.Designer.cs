@@ -53,6 +53,7 @@
             dataGridView_lista_wizyt.Size = new Size(608, 645);
             dataGridView_lista_wizyt.TabIndex = 0;
             dataGridView_lista_wizyt.CellContentClick += dataGridView_lista_wizyt_CellContentClick;
+            dataGridView_lista_wizyt.SelectionChanged += dataGridView_lista_wizyt_SelectionChanged_1;
             // 
             // button_cancel_visit
             // 
