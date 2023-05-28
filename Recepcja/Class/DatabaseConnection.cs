@@ -322,18 +322,64 @@ namespace Patient_handling
             }
         }
 
+        public bool CheckDateAndEntity(DateOnly date, int doctorId)
+        {
+            string query;
 
+            if (doctorId == 0)
+            {
+                query = "SELECT * FROM CalendarEntity WHERE Date = @Date";
+            }
+            else
+            {
+                query = "SELECT * FROM CalendarEntity WHERE Date = @Date AND DoctorId = @DoctorId";
+            }
 
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@Date", date.ToString("yyyy-MM-dd"));
 
+            if (doctorId > 0)
+            {
+                cmd.Parameters.AddWithValue("@DoctorId", doctorId);
+            }
+
+            SqlDataReader? r = null;
+            try
+            {
+                connection.Open();
+                r = cmd.ExecuteReader();
+
+                while (r.Read())
+                {
+                    if (r.HasRows == true)
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return true;
+        }
     }
 
 
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
 
 
 

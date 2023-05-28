@@ -10,6 +10,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Recepcja.Forms;
 
 namespace Patient_handling
 {
@@ -61,7 +62,11 @@ namespace Patient_handling
                 dayContainer.Controls.Add(ucday);
 
                 DateOnly date = new DateOnly(year, month, i);
-                if (!CalendarEntityHelper.CheckDateAndEntity(date))
+                int idDoctor;
+                addDoctorprompt form = new addDoctorprompt();
+                idDoctor = form.DoctorId;
+                DatabaseConnection databaseConnection = new DatabaseConnection();
+                if (!databaseConnection.CheckDateAndEntity(date,idDoctor))
                 {
                     ucday.BackColor = Color.FromArgb(23, 35, 49);
                     ucday.ForeColor = Color.FromArgb(23, 35, 49);
