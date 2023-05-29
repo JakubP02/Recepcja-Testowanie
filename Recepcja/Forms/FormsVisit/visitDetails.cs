@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace Patient_handling
+namespace Recepcja
 {
     public partial class form_visitDetails : Form
     {

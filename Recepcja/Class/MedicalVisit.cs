@@ -14,7 +14,7 @@ using System.Net.Mail;
 
 
 
-namespace Patient_handling
+namespace Recepcja
 {
     public class MedicalVisit
     {

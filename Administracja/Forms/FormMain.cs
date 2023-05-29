@@ -354,5 +354,14 @@ namespace WinFormsApp1
         {
             openChildForm(new FormDoctorAppointments(this));
         }
+
+        private void btnReception_Click(object sender, EventArgs e)
+        {
+           Recepcja.form_ReceptionMenu2 form  = new Recepcja.form_ReceptionMenu2();
+            form.Show();
+            this.Hide();
+
+
+        }
     }
 }

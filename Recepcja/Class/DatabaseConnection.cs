@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
 
-namespace Patient_handling
+namespace Recepcja
 {
     internal class DatabaseConnection
     {

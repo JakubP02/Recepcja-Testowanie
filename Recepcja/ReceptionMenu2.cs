@@ -12,7 +12,7 @@ using static System.Windows.Forms.DataFormats;
 using System.Data.SqlClient;
 using Recepcja.Forms;
 
-namespace Patient_handling
+namespace Recepcja
 {
     public partial class form_ReceptionMenu2 : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace Patient_handling
+﻿namespace Recepcja
 {
     partial class form_ReceptionMenu2
     {

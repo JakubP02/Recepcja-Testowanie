@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Recepcja.Forms;
 
-namespace Patient_handling
+namespace Recepcja
 {
     public partial class CalenderAddNewVisit : Form
     {

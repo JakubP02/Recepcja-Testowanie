@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.DirectoryServices;
 
-namespace Patient_handling
+namespace Recepcja
 {
     public partial class Form_reception_menu : Form
     {

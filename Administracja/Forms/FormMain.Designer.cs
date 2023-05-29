@@ -62,6 +62,7 @@
             pnlChildForm = new Panel();
             pnlTitle = new Panel();
             labelTitle = new Label();
+            btnReception = new Button();
             pnlSideMenu.SuspendLayout();
             pnlDoctorPanelSubmenu.SuspendLayout();
             pnlCalendarSubMenu.SuspendLayout();
@@ -78,6 +79,7 @@
             // 
             pnlSideMenu.AutoScroll = true;
             pnlSideMenu.BackColor = Color.FromArgb(23, 35, 49);
+            pnlSideMenu.Controls.Add(btnReception);
             pnlSideMenu.Controls.Add(pnlDoctorPanelSubmenu);
             pnlSideMenu.Controls.Add(btnDoctorPanel);
             pnlSideMenu.Controls.Add(pnlCalendarSubMenu);
@@ -97,7 +99,7 @@
             pnlSideMenu.Dock = DockStyle.Left;
             pnlSideMenu.Location = new Point(0, 0);
             pnlSideMenu.Name = "pnlSideMenu";
-            pnlSideMenu.Size = new Size(250, 1069);
+            pnlSideMenu.Size = new Size(250, 1061);
             pnlSideMenu.TabIndex = 0;
             pnlSideMenu.Paint += pnlSideMenu_Paint;
             // 
@@ -378,7 +380,7 @@
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnLogout.ForeColor = Color.WhiteSmoke;
-            btnLogout.Location = new Point(0, 1025);
+            btnLogout.Location = new Point(0, 1017);
             btnLogout.Name = "btnLogout";
             btnLogout.Padding = new Padding(10, 0, 0, 0);
             btnLogout.Size = new Size(250, 44);
@@ -656,11 +658,30 @@
             labelTitle.TabIndex = 0;
             labelTitle.Text = "Home";
             // 
+            // btnReception
+            // 
+            btnReception.BackColor = Color.FromArgb(23, 35, 49);
+            btnReception.Dock = DockStyle.Top;
+            btnReception.FlatAppearance.BorderSize = 0;
+            btnReception.FlatStyle = FlatStyle.Flat;
+            btnReception.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnReception.ForeColor = Color.WhiteSmoke;
+            btnReception.Location = new Point(0, 972);
+            btnReception.Name = "btnReception";
+            btnReception.Padding = new Padding(10, 0, 0, 0);
+            btnReception.Size = new Size(250, 45);
+            btnReception.TabIndex = 16;
+            btnReception.Tag = "Calendar";
+            btnReception.Text = "Reception Menu";
+            btnReception.TextAlign = ContentAlignment.MiddleLeft;
+            btnReception.UseVisualStyleBackColor = false;
+            btnReception.Click += btnReception_Click;
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1426, 1069);
+            ClientSize = new Size(1426, 1061);
             Controls.Add(pnlTitle);
             Controls.Add(pnlChildForm);
             Controls.Add(pnlSideMenu);
@@ -718,5 +739,6 @@
         private Panel pnlDoctorPanelSubmenu;
         private Button btnDoctorAppointments;
         private Button btnDoctorCalendars;
+        private Button btnReception;
     }
 }

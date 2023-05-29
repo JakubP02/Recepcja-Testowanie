@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Patient_handling
+namespace Recepcja
 {
     internal class Patient
     {

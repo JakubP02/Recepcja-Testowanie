@@ -16,5 +16,10 @@ namespace Recepcja
         {
             InitializeComponent();
         }
+
+        private void EditVisit_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

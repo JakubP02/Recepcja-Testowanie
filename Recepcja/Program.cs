@@ -1,4 +1,4 @@
-using Patient_handling;
+using Recepcja;
 
 namespace Recepcja
 {

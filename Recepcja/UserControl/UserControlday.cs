@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Patient_handling
+namespace Recepcja
 {
     public partial class UserControlday : UserControl
     {
