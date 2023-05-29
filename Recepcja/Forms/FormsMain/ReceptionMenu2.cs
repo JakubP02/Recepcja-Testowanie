@@ -12,6 +12,7 @@ using static System.Windows.Forms.DataFormats;
 using System.Data.SqlClient;
 using Recepcja.Forms;
 
+
 namespace Recepcja
 {
     public partial class form_ReceptionMenu2 : Form
@@ -21,7 +22,7 @@ namespace Recepcja
         {
             InitializeComponent();
 
-
+            this.StartPosition = FormStartPosition.CenterScreen;
 
 
 
@@ -99,7 +100,7 @@ namespace Recepcja
 
         private void button1_Click(object sender, EventArgs e)
         {
-  
+
             FormSelectPatientToVisit add = new FormSelectPatientToVisit();
             add.TopLevel = false;
             add.FormBorderStyle = FormBorderStyle.None;
@@ -148,6 +149,11 @@ namespace Recepcja
         }
 
         private void pnlSideMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
         {
 
         }

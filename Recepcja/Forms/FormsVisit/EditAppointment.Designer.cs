@@ -109,7 +109,7 @@
         private Button btnSearchVisit;
         private Label label6;
         private TextBox txtPesel;
-        private DataGridView dataGridView_lista_wizyt;
         private Button btnEditVisit;
+        internal DataGridView dataGridView_lista_wizyt;
     }
 }

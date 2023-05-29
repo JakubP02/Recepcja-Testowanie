@@ -12,7 +12,10 @@ namespace Recepcja
 {
     public partial class EditAppointment : Form
     {
-        public string doctorid;
+
+
+
+
         public EditAppointment()
         {
             InitializeComponent();

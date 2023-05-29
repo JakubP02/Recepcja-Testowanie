@@ -97,9 +97,8 @@ namespace Recepcja
             databaseConnection.UpdateDataInDatabase("CalendarEntity", columnName, columnValue, condition);
 
             RefreshDataGridView();
-
-
-
+        
+       
         }
 
         private void addNewVisit_Load(object sender, EventArgs e)
