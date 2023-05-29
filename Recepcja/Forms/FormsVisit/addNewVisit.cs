@@ -48,7 +48,7 @@ namespace Recepcja
 
 
   
-            RefreshDataGridView();
+  
 
         }
 
@@ -103,6 +103,7 @@ namespace Recepcja
 
         private void addNewVisit_Load(object sender, EventArgs e)
         {
+            RefreshDataGridView();
 
         }
 

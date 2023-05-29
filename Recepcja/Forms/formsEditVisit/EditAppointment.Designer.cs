@@ -65,16 +65,19 @@
             // dataGridView_lista_wizyt
             // 
             dataGridView_lista_wizyt.AllowUserToAddRows = false;
+            dataGridView_lista_wizyt.AllowUserToDeleteRows = false;
             dataGridView_lista_wizyt.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_lista_wizyt.Location = new Point(12, 21);
+            dataGridView_lista_wizyt.MultiSelect = false;
             dataGridView_lista_wizyt.Name = "dataGridView_lista_wizyt";
-            dataGridView_lista_wizyt.ReadOnly = true;
             dataGridView_lista_wizyt.RowHeadersVisible = false;
             dataGridView_lista_wizyt.RowHeadersWidth = 51;
             dataGridView_lista_wizyt.RowTemplate.Height = 25;
             dataGridView_lista_wizyt.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView_lista_wizyt.Size = new Size(608, 645);
             dataGridView_lista_wizyt.TabIndex = 30;
+            dataGridView_lista_wizyt.CellClick += dataGridView_lista_wizyt_CellClick;
+            dataGridView_lista_wizyt.SelectionChanged += dataGridView_lista_wizyt_SelectionChanged;
             // 
             // btnEditVisit
             // 

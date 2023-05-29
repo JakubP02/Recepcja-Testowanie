@@ -19,4 +19,8 @@
     <ProjectReference Include="..\SharedElements\SharedElements.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UserControl\UserControlEditVisit\" />
+  </ItemGroup>
+
 </Project>

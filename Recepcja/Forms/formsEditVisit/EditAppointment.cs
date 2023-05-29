@@ -12,7 +12,9 @@ namespace Recepcja
 {
     public partial class EditAppointment : Form
     {
-
+        public static int Doctorid;
+        public static int AppoitmentId;
+        public static string Pesel;
 
 
 
@@ -21,9 +23,9 @@ namespace Recepcja
             InitializeComponent();
 
 
-
             DatabaseConnection databaseConnection = new DatabaseConnection();
             databaseConnection.LoadDataIntoDataGridView(dataGridView_lista_wizyt, "VisitViewClearCalendar");
+ 
         }
 
         private void EditAppointment_Load(object sender, EventArgs e)
@@ -38,11 +40,15 @@ namespace Recepcja
 
             DatabaseConnection databaseConnection = new DatabaseConnection();
             databaseConnection.SearchDataInView(searchText, "VisitView", dataGridView_lista_wizyt, columnName);
+
+
         }
 
         private void btnEditVisit_Click(object sender, EventArgs e)
         {
-            CalenderAddNewVisit form_VisitDetails = new CalenderAddNewVisit();
+
+
+            CalendarEditVisit form_VisitDetails = new CalendarEditVisit();
             form_VisitDetails.TopLevel = false;
             form_VisitDetails.FormBorderStyle = FormBorderStyle.None;
             form_VisitDetails.Dock = DockStyle.Fill;
@@ -52,11 +58,31 @@ namespace Recepcja
             form_VisitDetails.BringToFront();
             form_VisitDetails.Show();
 
-            addNewVisit addNewVisit = new addNewVisit();
 
 
 
 
+
+        }
+
+        private void dataGridView_lista_wizyt_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+
+        }
+
+        private void dataGridView_lista_wizyt_SelectionChanged(object sender, EventArgs e)
+        {
+
+            if (dataGridView_lista_wizyt.SelectedRows.Count > 0)
+            {
+
+                Doctorid = (int)dataGridView_lista_wizyt.SelectedRows[0].Cells["DoctorId"].Value;
+                AppoitmentId = (int)dataGridView_lista_wizyt.SelectedRows[0].Cells["Id"].Value;
+                Pesel= dataGridView_lista_wizyt.SelectedRows[0].Cells["PatientPesel"].Value.ToString();
+
+            }
 
         }
     }
