@@ -19,8 +19,4 @@
     <ProjectReference Include="..\SharedElements\SharedElements.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Forms\FormsMain\" />
-  </ItemGroup>
-
 </Project>
