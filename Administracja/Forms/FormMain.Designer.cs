@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             pnlSideMenu = new Panel();
+            pnlPatientSubmenu = new Panel();
+            btnPatientEditPatientData = new Button();
+            btnPatientFilterData = new Button();
+            btnPatientAdd = new Button();
+            btnPatientList = new Button();
+            btnPatient = new Button();
             pnlDoctorPanelSubmenu = new Panel();
             btnDoctorAppointments = new Button();
             btnDoctorCalendars = new Button();
@@ -62,8 +68,8 @@
             pnlChildForm = new Panel();
             pnlTitle = new Panel();
             labelTitle = new Label();
-            btnReception = new Button();
             pnlSideMenu.SuspendLayout();
+            pnlPatientSubmenu.SuspendLayout();
             pnlDoctorPanelSubmenu.SuspendLayout();
             pnlCalendarSubMenu.SuspendLayout();
             pnlOfficeSubMenu.SuspendLayout();
@@ -79,7 +85,8 @@
             // 
             pnlSideMenu.AutoScroll = true;
             pnlSideMenu.BackColor = Color.FromArgb(23, 35, 49);
-            pnlSideMenu.Controls.Add(btnReception);
+            pnlSideMenu.Controls.Add(pnlPatientSubmenu);
+            pnlSideMenu.Controls.Add(btnPatient);
             pnlSideMenu.Controls.Add(pnlDoctorPanelSubmenu);
             pnlSideMenu.Controls.Add(btnDoctorPanel);
             pnlSideMenu.Controls.Add(pnlCalendarSubMenu);
@@ -103,6 +110,122 @@
             pnlSideMenu.TabIndex = 0;
             pnlSideMenu.Paint += pnlSideMenu_Paint;
             // 
+            // pnlPatientSubmenu
+            // 
+            pnlPatientSubmenu.BackColor = Color.FromArgb(31, 47, 66);
+            pnlPatientSubmenu.Controls.Add(btnPatientEditPatientData);
+            pnlPatientSubmenu.Controls.Add(btnPatientFilterData);
+            pnlPatientSubmenu.Controls.Add(btnPatientAdd);
+            pnlPatientSubmenu.Controls.Add(btnPatientList);
+            pnlPatientSubmenu.Dock = DockStyle.Top;
+            pnlPatientSubmenu.Location = new Point(0, 1017);
+            pnlPatientSubmenu.Name = "pnlPatientSubmenu";
+            pnlPatientSubmenu.Size = new Size(233, 164);
+            pnlPatientSubmenu.TabIndex = 17;
+            // 
+            // btnPatientEditPatientData
+            // 
+            btnPatientEditPatientData.BackColor = Color.FromArgb(0, 0, 0, 0);
+            btnPatientEditPatientData.Dock = DockStyle.Top;
+            btnPatientEditPatientData.FlatAppearance.BorderSize = 0;
+            btnPatientEditPatientData.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 189, 241);
+            btnPatientEditPatientData.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 189, 241);
+            btnPatientEditPatientData.FlatStyle = FlatStyle.Flat;
+            btnPatientEditPatientData.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPatientEditPatientData.ForeColor = Color.WhiteSmoke;
+            btnPatientEditPatientData.Location = new Point(0, 120);
+            btnPatientEditPatientData.Name = "btnPatientEditPatientData";
+            btnPatientEditPatientData.Padding = new Padding(35, 0, 0, 0);
+            btnPatientEditPatientData.Size = new Size(233, 40);
+            btnPatientEditPatientData.TabIndex = 3;
+            btnPatientEditPatientData.Tag = "List";
+            btnPatientEditPatientData.Text = "Edit patient Data";
+            btnPatientEditPatientData.TextAlign = ContentAlignment.MiddleLeft;
+            btnPatientEditPatientData.UseVisualStyleBackColor = false;
+            btnPatientEditPatientData.Click += btnPatientEditPatientData_Click;
+            // 
+            // btnPatientFilterData
+            // 
+            btnPatientFilterData.BackColor = Color.FromArgb(0, 0, 0, 0);
+            btnPatientFilterData.Dock = DockStyle.Top;
+            btnPatientFilterData.FlatAppearance.BorderSize = 0;
+            btnPatientFilterData.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 189, 241);
+            btnPatientFilterData.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 189, 241);
+            btnPatientFilterData.FlatStyle = FlatStyle.Flat;
+            btnPatientFilterData.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPatientFilterData.ForeColor = Color.WhiteSmoke;
+            btnPatientFilterData.Location = new Point(0, 80);
+            btnPatientFilterData.Name = "btnPatientFilterData";
+            btnPatientFilterData.Padding = new Padding(35, 0, 0, 0);
+            btnPatientFilterData.Size = new Size(233, 40);
+            btnPatientFilterData.TabIndex = 2;
+            btnPatientFilterData.Tag = "List";
+            btnPatientFilterData.Text = "Filter data";
+            btnPatientFilterData.TextAlign = ContentAlignment.MiddleLeft;
+            btnPatientFilterData.UseVisualStyleBackColor = false;
+            btnPatientFilterData.Click += btnPatientFilterData_Click_1;
+            // 
+            // btnPatientAdd
+            // 
+            btnPatientAdd.BackColor = Color.FromArgb(0, 0, 0, 0);
+            btnPatientAdd.Dock = DockStyle.Top;
+            btnPatientAdd.FlatAppearance.BorderSize = 0;
+            btnPatientAdd.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 189, 241);
+            btnPatientAdd.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 189, 241);
+            btnPatientAdd.FlatStyle = FlatStyle.Flat;
+            btnPatientAdd.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPatientAdd.ForeColor = Color.WhiteSmoke;
+            btnPatientAdd.Location = new Point(0, 40);
+            btnPatientAdd.Name = "btnPatientAdd";
+            btnPatientAdd.Padding = new Padding(35, 0, 0, 0);
+            btnPatientAdd.Size = new Size(233, 40);
+            btnPatientAdd.TabIndex = 1;
+            btnPatientAdd.Tag = "Add";
+            btnPatientAdd.Text = "Add";
+            btnPatientAdd.TextAlign = ContentAlignment.MiddleLeft;
+            btnPatientAdd.UseVisualStyleBackColor = false;
+            btnPatientAdd.Click += btnPatientAdd_Click_1;
+            // 
+            // btnPatientList
+            // 
+            btnPatientList.BackColor = Color.FromArgb(0, 0, 0, 0);
+            btnPatientList.Dock = DockStyle.Top;
+            btnPatientList.FlatAppearance.BorderSize = 0;
+            btnPatientList.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 189, 241);
+            btnPatientList.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 189, 241);
+            btnPatientList.FlatStyle = FlatStyle.Flat;
+            btnPatientList.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPatientList.ForeColor = Color.WhiteSmoke;
+            btnPatientList.Location = new Point(0, 0);
+            btnPatientList.Name = "btnPatientList";
+            btnPatientList.Padding = new Padding(35, 0, 0, 0);
+            btnPatientList.Size = new Size(233, 40);
+            btnPatientList.TabIndex = 0;
+            btnPatientList.Tag = "List";
+            btnPatientList.Text = "List";
+            btnPatientList.TextAlign = ContentAlignment.MiddleLeft;
+            btnPatientList.UseVisualStyleBackColor = false;
+            btnPatientList.Click += btnPatientList_Click;
+            // 
+            // btnPatient
+            // 
+            btnPatient.BackColor = Color.FromArgb(23, 35, 49);
+            btnPatient.Dock = DockStyle.Top;
+            btnPatient.FlatAppearance.BorderSize = 0;
+            btnPatient.FlatStyle = FlatStyle.Flat;
+            btnPatient.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPatient.ForeColor = Color.WhiteSmoke;
+            btnPatient.Location = new Point(0, 972);
+            btnPatient.Name = "btnPatient";
+            btnPatient.Padding = new Padding(10, 0, 0, 0);
+            btnPatient.Size = new Size(233, 45);
+            btnPatient.TabIndex = 16;
+            btnPatient.Tag = "Calendar";
+            btnPatient.Text = "Patient";
+            btnPatient.TextAlign = ContentAlignment.MiddleLeft;
+            btnPatient.UseVisualStyleBackColor = false;
+            btnPatient.Click += btnReception_Click;
+            // 
             // pnlDoctorPanelSubmenu
             // 
             pnlDoctorPanelSubmenu.AllowDrop = true;
@@ -112,7 +235,7 @@
             pnlDoctorPanelSubmenu.Dock = DockStyle.Top;
             pnlDoctorPanelSubmenu.Location = new Point(0, 890);
             pnlDoctorPanelSubmenu.Name = "pnlDoctorPanelSubmenu";
-            pnlDoctorPanelSubmenu.Size = new Size(250, 82);
+            pnlDoctorPanelSubmenu.Size = new Size(233, 82);
             pnlDoctorPanelSubmenu.TabIndex = 15;
             pnlDoctorPanelSubmenu.Visible = false;
             // 
@@ -129,7 +252,7 @@
             btnDoctorAppointments.Location = new Point(0, 40);
             btnDoctorAppointments.Name = "btnDoctorAppointments";
             btnDoctorAppointments.Padding = new Padding(35, 0, 0, 0);
-            btnDoctorAppointments.Size = new Size(250, 40);
+            btnDoctorAppointments.Size = new Size(233, 40);
             btnDoctorAppointments.TabIndex = 1;
             btnDoctorAppointments.Tag = "Add";
             btnDoctorAppointments.Text = "Appointments";
@@ -150,7 +273,7 @@
             btnDoctorCalendars.Location = new Point(0, 0);
             btnDoctorCalendars.Name = "btnDoctorCalendars";
             btnDoctorCalendars.Padding = new Padding(35, 0, 0, 0);
-            btnDoctorCalendars.Size = new Size(250, 40);
+            btnDoctorCalendars.Size = new Size(233, 40);
             btnDoctorCalendars.TabIndex = 0;
             btnDoctorCalendars.Tag = "List";
             btnDoctorCalendars.Text = "Calendars";
@@ -169,7 +292,7 @@
             btnDoctorPanel.Location = new Point(0, 845);
             btnDoctorPanel.Name = "btnDoctorPanel";
             btnDoctorPanel.Padding = new Padding(10, 0, 0, 0);
-            btnDoctorPanel.Size = new Size(250, 45);
+            btnDoctorPanel.Size = new Size(233, 45);
             btnDoctorPanel.TabIndex = 14;
             btnDoctorPanel.Tag = "Calendar";
             btnDoctorPanel.Text = "Doctor Panel";
@@ -184,7 +307,7 @@
             pnlCalendarSubMenu.Dock = DockStyle.Top;
             pnlCalendarSubMenu.Location = new Point(0, 805);
             pnlCalendarSubMenu.Name = "pnlCalendarSubMenu";
-            pnlCalendarSubMenu.Size = new Size(250, 40);
+            pnlCalendarSubMenu.Size = new Size(233, 40);
             pnlCalendarSubMenu.TabIndex = 13;
             pnlCalendarSubMenu.Paint += panel1_Paint;
             // 
@@ -201,7 +324,7 @@
             btnCalendarList.Location = new Point(0, 0);
             btnCalendarList.Name = "btnCalendarList";
             btnCalendarList.Padding = new Padding(35, 0, 0, 0);
-            btnCalendarList.Size = new Size(250, 40);
+            btnCalendarList.Size = new Size(233, 40);
             btnCalendarList.TabIndex = 0;
             btnCalendarList.Tag = "List";
             btnCalendarList.Text = "List";
@@ -220,7 +343,7 @@
             btnCalendar.Location = new Point(0, 760);
             btnCalendar.Name = "btnCalendar";
             btnCalendar.Padding = new Padding(10, 0, 0, 0);
-            btnCalendar.Size = new Size(250, 45);
+            btnCalendar.Size = new Size(233, 45);
             btnCalendar.TabIndex = 12;
             btnCalendar.Tag = "Calendar";
             btnCalendar.Text = "Calendar";
@@ -236,7 +359,7 @@
             pnlOfficeSubMenu.Dock = DockStyle.Top;
             pnlOfficeSubMenu.Location = new Point(0, 678);
             pnlOfficeSubMenu.Name = "pnlOfficeSubMenu";
-            pnlOfficeSubMenu.Size = new Size(250, 82);
+            pnlOfficeSubMenu.Size = new Size(233, 82);
             pnlOfficeSubMenu.TabIndex = 11;
             // 
             // btnOfficeAdd
@@ -252,7 +375,7 @@
             btnOfficeAdd.Location = new Point(0, 40);
             btnOfficeAdd.Name = "btnOfficeAdd";
             btnOfficeAdd.Padding = new Padding(35, 0, 0, 0);
-            btnOfficeAdd.Size = new Size(250, 40);
+            btnOfficeAdd.Size = new Size(233, 40);
             btnOfficeAdd.TabIndex = 1;
             btnOfficeAdd.Tag = "Add";
             btnOfficeAdd.Text = "Add";
@@ -273,7 +396,7 @@
             btnOfficeList.Location = new Point(0, 0);
             btnOfficeList.Name = "btnOfficeList";
             btnOfficeList.Padding = new Padding(35, 0, 0, 0);
-            btnOfficeList.Size = new Size(250, 40);
+            btnOfficeList.Size = new Size(233, 40);
             btnOfficeList.TabIndex = 0;
             btnOfficeList.Tag = "List";
             btnOfficeList.Text = "List";
@@ -292,7 +415,7 @@
             btnOffice.Location = new Point(0, 633);
             btnOffice.Name = "btnOffice";
             btnOffice.Padding = new Padding(10, 0, 0, 0);
-            btnOffice.Size = new Size(250, 45);
+            btnOffice.Size = new Size(233, 45);
             btnOffice.TabIndex = 10;
             btnOffice.Tag = "Office";
             btnOffice.Text = "Office";
@@ -308,7 +431,7 @@
             pnlUsersSubMenu.Dock = DockStyle.Top;
             pnlUsersSubMenu.Location = new Point(0, 551);
             pnlUsersSubMenu.Name = "pnlUsersSubMenu";
-            pnlUsersSubMenu.Size = new Size(250, 82);
+            pnlUsersSubMenu.Size = new Size(233, 82);
             pnlUsersSubMenu.TabIndex = 9;
             // 
             // btnUsersAdd
@@ -324,7 +447,7 @@
             btnUsersAdd.Location = new Point(0, 40);
             btnUsersAdd.Name = "btnUsersAdd";
             btnUsersAdd.Padding = new Padding(35, 0, 0, 0);
-            btnUsersAdd.Size = new Size(250, 40);
+            btnUsersAdd.Size = new Size(233, 40);
             btnUsersAdd.TabIndex = 1;
             btnUsersAdd.Tag = "Add";
             btnUsersAdd.Text = "Add";
@@ -345,7 +468,7 @@
             btnUsersList.Location = new Point(0, 0);
             btnUsersList.Name = "btnUsersList";
             btnUsersList.Padding = new Padding(35, 0, 0, 0);
-            btnUsersList.Size = new Size(250, 40);
+            btnUsersList.Size = new Size(233, 40);
             btnUsersList.TabIndex = 0;
             btnUsersList.Tag = "List";
             btnUsersList.Text = "List";
@@ -364,7 +487,7 @@
             btnUser.Location = new Point(0, 506);
             btnUser.Name = "btnUser";
             btnUser.Padding = new Padding(10, 0, 0, 0);
-            btnUser.Size = new Size(250, 45);
+            btnUser.Size = new Size(233, 45);
             btnUser.TabIndex = 8;
             btnUser.Tag = "User";
             btnUser.Text = "User";
@@ -380,10 +503,10 @@
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnLogout.ForeColor = Color.WhiteSmoke;
-            btnLogout.Location = new Point(0, 1017);
+            btnLogout.Location = new Point(0, 1181);
             btnLogout.Name = "btnLogout";
             btnLogout.Padding = new Padding(10, 0, 0, 0);
-            btnLogout.Size = new Size(250, 44);
+            btnLogout.Size = new Size(233, 44);
             btnLogout.TabIndex = 7;
             btnLogout.Tag = "Logout";
             btnLogout.Text = "Logout";
@@ -398,7 +521,7 @@
             pnlRoleSubmenu.Dock = DockStyle.Top;
             pnlRoleSubmenu.Location = new Point(0, 424);
             pnlRoleSubmenu.Name = "pnlRoleSubmenu";
-            pnlRoleSubmenu.Size = new Size(250, 82);
+            pnlRoleSubmenu.Size = new Size(233, 82);
             pnlRoleSubmenu.TabIndex = 6;
             // 
             // btnRoleAdd
@@ -414,7 +537,7 @@
             btnRoleAdd.Location = new Point(0, 40);
             btnRoleAdd.Name = "btnRoleAdd";
             btnRoleAdd.Padding = new Padding(35, 0, 0, 0);
-            btnRoleAdd.Size = new Size(250, 40);
+            btnRoleAdd.Size = new Size(233, 40);
             btnRoleAdd.TabIndex = 1;
             btnRoleAdd.Tag = "Add";
             btnRoleAdd.Text = "Add";
@@ -435,7 +558,7 @@
             btnRoleList.Location = new Point(0, 0);
             btnRoleList.Name = "btnRoleList";
             btnRoleList.Padding = new Padding(35, 0, 0, 0);
-            btnRoleList.Size = new Size(250, 40);
+            btnRoleList.Size = new Size(233, 40);
             btnRoleList.TabIndex = 0;
             btnRoleList.Tag = "List";
             btnRoleList.Text = "List";
@@ -454,7 +577,7 @@
             btnRole.Location = new Point(0, 379);
             btnRole.Name = "btnRole";
             btnRole.Padding = new Padding(10, 0, 0, 0);
-            btnRole.Size = new Size(250, 45);
+            btnRole.Size = new Size(233, 45);
             btnRole.TabIndex = 5;
             btnRole.Tag = "Role";
             btnRole.Text = "Role";
@@ -470,7 +593,7 @@
             pnlDoctorSubmenu.Dock = DockStyle.Top;
             pnlDoctorSubmenu.Location = new Point(0, 298);
             pnlDoctorSubmenu.Name = "pnlDoctorSubmenu";
-            pnlDoctorSubmenu.Size = new Size(250, 81);
+            pnlDoctorSubmenu.Size = new Size(233, 81);
             pnlDoctorSubmenu.TabIndex = 4;
             // 
             // btnDoctorAdd
@@ -486,7 +609,7 @@
             btnDoctorAdd.Location = new Point(0, 40);
             btnDoctorAdd.Name = "btnDoctorAdd";
             btnDoctorAdd.Padding = new Padding(35, 0, 0, 0);
-            btnDoctorAdd.Size = new Size(250, 40);
+            btnDoctorAdd.Size = new Size(233, 40);
             btnDoctorAdd.TabIndex = 1;
             btnDoctorAdd.Tag = "Add";
             btnDoctorAdd.Text = "Add";
@@ -507,7 +630,7 @@
             btnDoctorList.Location = new Point(0, 0);
             btnDoctorList.Name = "btnDoctorList";
             btnDoctorList.Padding = new Padding(35, 0, 0, 0);
-            btnDoctorList.Size = new Size(250, 40);
+            btnDoctorList.Size = new Size(233, 40);
             btnDoctorList.TabIndex = 0;
             btnDoctorList.Tag = "List";
             btnDoctorList.Text = "List";
@@ -526,7 +649,7 @@
             btnDoctor.Location = new Point(0, 253);
             btnDoctor.Name = "btnDoctor";
             btnDoctor.Padding = new Padding(10, 0, 0, 0);
-            btnDoctor.Size = new Size(250, 45);
+            btnDoctor.Size = new Size(233, 45);
             btnDoctor.TabIndex = 3;
             btnDoctor.Tag = "Doctor’s specializations";
             btnDoctor.Text = "Doctor’s specializations";
@@ -542,7 +665,7 @@
             pnlEmployeeSubmenu.Dock = DockStyle.Top;
             pnlEmployeeSubmenu.Location = new Point(0, 170);
             pnlEmployeeSubmenu.Name = "pnlEmployeeSubmenu";
-            pnlEmployeeSubmenu.Size = new Size(250, 83);
+            pnlEmployeeSubmenu.Size = new Size(233, 83);
             pnlEmployeeSubmenu.TabIndex = 2;
             // 
             // btnEmployeeAdd
@@ -558,7 +681,7 @@
             btnEmployeeAdd.Location = new Point(0, 40);
             btnEmployeeAdd.Name = "btnEmployeeAdd";
             btnEmployeeAdd.Padding = new Padding(35, 0, 0, 0);
-            btnEmployeeAdd.Size = new Size(250, 40);
+            btnEmployeeAdd.Size = new Size(233, 40);
             btnEmployeeAdd.TabIndex = 1;
             btnEmployeeAdd.Tag = "Add";
             btnEmployeeAdd.Text = "Add";
@@ -579,7 +702,7 @@
             btnEmployeeList.Location = new Point(0, 0);
             btnEmployeeList.Name = "btnEmployeeList";
             btnEmployeeList.Padding = new Padding(35, 0, 0, 0);
-            btnEmployeeList.Size = new Size(250, 40);
+            btnEmployeeList.Size = new Size(233, 40);
             btnEmployeeList.TabIndex = 0;
             btnEmployeeList.Tag = "List";
             btnEmployeeList.Text = "List";
@@ -598,7 +721,7 @@
             btnEmployee.Location = new Point(0, 125);
             btnEmployee.Name = "btnEmployee";
             btnEmployee.Padding = new Padding(10, 0, 0, 0);
-            btnEmployee.Size = new Size(250, 45);
+            btnEmployee.Size = new Size(233, 45);
             btnEmployee.TabIndex = 1;
             btnEmployee.Tag = "Employee";
             btnEmployee.Text = "Employee";
@@ -613,7 +736,7 @@
             pnlLogo.Dock = DockStyle.Top;
             pnlLogo.Location = new Point(0, 0);
             pnlLogo.Name = "pnlLogo";
-            pnlLogo.Size = new Size(250, 125);
+            pnlLogo.Size = new Size(233, 125);
             pnlLogo.TabIndex = 0;
             // 
             // btnMenu
@@ -658,25 +781,6 @@
             labelTitle.TabIndex = 0;
             labelTitle.Text = "Home";
             // 
-            // btnReception
-            // 
-            btnReception.BackColor = Color.FromArgb(23, 35, 49);
-            btnReception.Dock = DockStyle.Top;
-            btnReception.FlatAppearance.BorderSize = 0;
-            btnReception.FlatStyle = FlatStyle.Flat;
-            btnReception.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnReception.ForeColor = Color.WhiteSmoke;
-            btnReception.Location = new Point(0, 972);
-            btnReception.Name = "btnReception";
-            btnReception.Padding = new Padding(10, 0, 0, 0);
-            btnReception.Size = new Size(250, 45);
-            btnReception.TabIndex = 16;
-            btnReception.Tag = "Calendar";
-            btnReception.Text = "Reception Menu";
-            btnReception.TextAlign = ContentAlignment.MiddleLeft;
-            btnReception.UseVisualStyleBackColor = false;
-            btnReception.Click += btnReception_Click;
-            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -690,6 +794,7 @@
             Name = "FormMain";
             Text = "Medical clinic";
             pnlSideMenu.ResumeLayout(false);
+            pnlPatientSubmenu.ResumeLayout(false);
             pnlDoctorPanelSubmenu.ResumeLayout(false);
             pnlCalendarSubMenu.ResumeLayout(false);
             pnlOfficeSubMenu.ResumeLayout(false);
@@ -739,6 +844,11 @@
         private Panel pnlDoctorPanelSubmenu;
         private Button btnDoctorAppointments;
         private Button btnDoctorCalendars;
-        private Button btnReception;
+        private Button btnPatient;
+        private Panel pnlPatientSubmenu;
+        private Button btnPatientFilterData;
+        private Button btnPatientAdd;
+        private Button btnPatientList;
+        private Button btnPatientEditPatientData;
     }
 }

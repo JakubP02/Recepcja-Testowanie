@@ -36,16 +36,16 @@
             button2 = new Button();
             pnlEmployeeSubmenu = new Panel();
             panel3 = new Panel();
-            button4 = new Button();
-            button5 = new Button();
-            btnEmployeeAdd = new Button();
-            btnEmployeeList = new Button();
             btnEmployee = new Button();
             pnlLogo = new Panel();
             btnMenu = new Button();
             pnlTitle = new Panel();
             labelTitle = new Label();
             panel1 = new Panel();
+            button4 = new Button();
+            button5 = new Button();
+            btnEmployeeAdd = new Button();
+            btnEmployeeList = new Button();
             pnlSideMenu.SuspendLayout();
             panel2.SuspendLayout();
             pnlEmployeeSubmenu.SuspendLayout();
@@ -186,6 +186,75 @@
             panel3.Size = new Size(250, 121);
             panel3.TabIndex = 3;
             // 
+            // btnEmployee
+            // 
+            btnEmployee.BackColor = Color.FromArgb(23, 35, 49);
+            btnEmployee.Dock = DockStyle.Top;
+            btnEmployee.FlatAppearance.BorderSize = 0;
+            btnEmployee.FlatStyle = FlatStyle.Flat;
+            btnEmployee.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEmployee.ForeColor = Color.WhiteSmoke;
+            btnEmployee.Location = new Point(0, 125);
+            btnEmployee.Name = "btnEmployee";
+            btnEmployee.Padding = new Padding(10, 0, 0, 0);
+            btnEmployee.Size = new Size(250, 45);
+            btnEmployee.TabIndex = 1;
+            btnEmployee.Tag = "Employee";
+            btnEmployee.Text = "Patient";
+            btnEmployee.TextAlign = ContentAlignment.MiddleLeft;
+            btnEmployee.UseVisualStyleBackColor = false;
+            // 
+            // pnlLogo
+            // 
+            pnlLogo.BackColor = Color.FromArgb(23, 35, 49);
+            pnlLogo.Controls.Add(btnMenu);
+            pnlLogo.Dock = DockStyle.Top;
+            pnlLogo.Location = new Point(0, 0);
+            pnlLogo.Name = "pnlLogo";
+            pnlLogo.Size = new Size(250, 125);
+            pnlLogo.TabIndex = 0;
+            // 
+            // btnMenu
+            // 
+            btnMenu.FlatAppearance.BorderSize = 0;
+            btnMenu.FlatStyle = FlatStyle.Flat;
+            btnMenu.Location = new Point(181, 3);
+            btnMenu.Name = "btnMenu";
+            btnMenu.Size = new Size(66, 53);
+            btnMenu.TabIndex = 1;
+            btnMenu.UseVisualStyleBackColor = true;
+            // 
+            // pnlTitle
+            // 
+            pnlTitle.BackColor = Color.FromArgb(23, 35, 49);
+            pnlTitle.Controls.Add(labelTitle);
+            pnlTitle.Dock = DockStyle.Top;
+            pnlTitle.Location = new Point(250, 0);
+            pnlTitle.Name = "pnlTitle";
+            pnlTitle.Size = new Size(1317, 125);
+            pnlTitle.TabIndex = 2;
+            pnlTitle.Paint += pnlTitle_Paint;
+            // 
+            // labelTitle
+            // 
+            labelTitle.AutoSize = true;
+            labelTitle.Font = new Font("Microsoft Sans Serif", 30F, FontStyle.Bold, GraphicsUnit.Point);
+            labelTitle.ForeColor = Color.WhiteSmoke;
+            labelTitle.Location = new Point(416, 38);
+            labelTitle.Name = "labelTitle";
+            labelTitle.Size = new Size(325, 46);
+            labelTitle.TabIndex = 0;
+            labelTitle.Text = "Reception Menu";
+            // 
+            // panel1
+            // 
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(250, 125);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1317, 765);
+            panel1.TabIndex = 3;
+            panel1.Paint += panel1_Paint;
+            // 
             // button4
             // 
             button4.BackColor = Color.FromArgb(0, 0, 0, 0);
@@ -270,75 +339,6 @@
             btnEmployeeList.UseVisualStyleBackColor = false;
             btnEmployeeList.Click += btnEmployeeList_Click;
             // 
-            // btnEmployee
-            // 
-            btnEmployee.BackColor = Color.FromArgb(23, 35, 49);
-            btnEmployee.Dock = DockStyle.Top;
-            btnEmployee.FlatAppearance.BorderSize = 0;
-            btnEmployee.FlatStyle = FlatStyle.Flat;
-            btnEmployee.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnEmployee.ForeColor = Color.WhiteSmoke;
-            btnEmployee.Location = new Point(0, 125);
-            btnEmployee.Name = "btnEmployee";
-            btnEmployee.Padding = new Padding(10, 0, 0, 0);
-            btnEmployee.Size = new Size(250, 45);
-            btnEmployee.TabIndex = 1;
-            btnEmployee.Tag = "Employee";
-            btnEmployee.Text = "Patient";
-            btnEmployee.TextAlign = ContentAlignment.MiddleLeft;
-            btnEmployee.UseVisualStyleBackColor = false;
-            // 
-            // pnlLogo
-            // 
-            pnlLogo.BackColor = Color.FromArgb(23, 35, 49);
-            pnlLogo.Controls.Add(btnMenu);
-            pnlLogo.Dock = DockStyle.Top;
-            pnlLogo.Location = new Point(0, 0);
-            pnlLogo.Name = "pnlLogo";
-            pnlLogo.Size = new Size(250, 125);
-            pnlLogo.TabIndex = 0;
-            // 
-            // btnMenu
-            // 
-            btnMenu.FlatAppearance.BorderSize = 0;
-            btnMenu.FlatStyle = FlatStyle.Flat;
-            btnMenu.Location = new Point(181, 3);
-            btnMenu.Name = "btnMenu";
-            btnMenu.Size = new Size(66, 53);
-            btnMenu.TabIndex = 1;
-            btnMenu.UseVisualStyleBackColor = true;
-            // 
-            // pnlTitle
-            // 
-            pnlTitle.BackColor = Color.FromArgb(23, 35, 49);
-            pnlTitle.Controls.Add(labelTitle);
-            pnlTitle.Dock = DockStyle.Top;
-            pnlTitle.Location = new Point(250, 0);
-            pnlTitle.Name = "pnlTitle";
-            pnlTitle.Size = new Size(1317, 125);
-            pnlTitle.TabIndex = 2;
-            pnlTitle.Paint += pnlTitle_Paint;
-            // 
-            // labelTitle
-            // 
-            labelTitle.AutoSize = true;
-            labelTitle.Font = new Font("Microsoft Sans Serif", 30F, FontStyle.Bold, GraphicsUnit.Point);
-            labelTitle.ForeColor = Color.WhiteSmoke;
-            labelTitle.Location = new Point(416, 38);
-            labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(325, 46);
-            labelTitle.TabIndex = 0;
-            labelTitle.Text = "Reception Menu";
-            // 
-            // panel1
-            // 
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(250, 125);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1317, 765);
-            panel1.TabIndex = 3;
-            panel1.Paint += panel1_Paint;
-            // 
             // form_ReceptionMenu2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -364,8 +364,6 @@
 
         private Panel pnlSideMenu;
         private Panel pnlEmployeeSubmenu;
-        private Button btnEmployeeAdd;
-        private Button btnEmployeeList;
         private Button btnEmployee;
         private Panel pnlLogo;
         private Button btnMenu;
@@ -376,9 +374,11 @@
         private Button button3;
         private Button button2;
         private Panel panel3;
-        private Button button5;
-        private Button button4;
         private Button button6;
         public Panel panel1;
+        private Button button4;
+        private Button button5;
+        private Button btnEmployeeAdd;
+        private Button btnEmployeeList;
     }
 }

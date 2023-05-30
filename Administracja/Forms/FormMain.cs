@@ -1,6 +1,8 @@
 using Administracja.Forms;
 using Administracja.FormsCalendar;
 using Administracja.FormsDoctor;
+using Patient_Handling;
+using Recepcja;
 
 namespace WinFormsApp1
 {
@@ -24,6 +26,7 @@ namespace WinFormsApp1
             pnlOfficeSubMenu.Visible = false;
             pnlCalendarSubMenu.Visible = false;
             pnlRoleSubmenu.Visible = false;
+            pnlPatientSubmenu.Visible = false;
         }
 
 
@@ -48,6 +51,9 @@ namespace WinFormsApp1
 
             if (pnlCalendarSubMenu.Visible == true)
                 pnlCalendarSubMenu.Visible = false;
+
+            if (pnlPatientSubmenu.Visible == true)
+                pnlPatientSubmenu.Visible = false;
         }
 
         private void showSubMenu(Panel subMenu)
@@ -357,10 +363,49 @@ namespace WinFormsApp1
 
         private void btnReception_Click(object sender, EventArgs e)
         {
-           Recepcja.form_ReceptionMenu2 form  = new Recepcja.form_ReceptionMenu2();
-            form.Show();
-            this.Hide();
+            showSubMenu(pnlPatientSubmenu);
+        }
 
+        private void btnPatientAdd_Click_1(object sender, EventArgs e)
+        {
+            Form_reception_menu formreceptionmenu = new Form_reception_menu();
+            Form_add_patient formAddPatient = new Form_add_patient(formreceptionmenu);
+            formAddPatient.TopLevel = false;
+            formAddPatient.FormBorderStyle = FormBorderStyle.None;
+            formAddPatient.Dock = DockStyle.Fill;
+            pnlChildForm.Controls.Add(formAddPatient);
+            pnlChildForm.Tag = formAddPatient;
+            formAddPatient.BringToFront();
+            formAddPatient.Show();
+        }
+
+        private void btnPatientFilterData_Click_1(object sender, EventArgs e)
+        {
+            Form_filter_data formfilterdata = new Form_filter_data();
+            formfilterdata.TopLevel = false;
+            formfilterdata.FormBorderStyle = FormBorderStyle.None;
+            formfilterdata.Dock = DockStyle.Fill;
+            pnlChildForm.Controls.Add(formfilterdata);
+            pnlChildForm.Tag = formfilterdata;
+            formfilterdata.BringToFront();
+            formfilterdata.Show();
+        }
+
+        private void btnPatientList_Click(object sender, EventArgs e)
+        {
+            Form_reception_menu formReceptionMenu = new Form_reception_menu();
+            formReceptionMenu.TopLevel = false;
+            formReceptionMenu.FormBorderStyle = FormBorderStyle.None;
+            formReceptionMenu.Dock = DockStyle.Fill;
+            pnlChildForm.Controls.Add(formReceptionMenu);
+            pnlChildForm.Tag = formReceptionMenu;
+            formReceptionMenu.BringToFront();
+            formReceptionMenu.Show();
+
+        }
+
+        private void btnPatientEditPatientData_Click(object sender, EventArgs e)
+        {
 
         }
     }
