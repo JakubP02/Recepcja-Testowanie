@@ -57,8 +57,8 @@ namespace Recepcja
 
                 DateOnly date = new DateOnly(year, month, i);
                 int idDoctor;
-                addDoctorprompt form = new addDoctorprompt();
-                idDoctor = form.DoctorId;
+
+                idDoctor = EditAppointment.Doctorid;
                 DatabaseConnection databaseConnection = new DatabaseConnection();
                 if (!databaseConnection.CheckDateAndEntity(date, idDoctor))
                 {

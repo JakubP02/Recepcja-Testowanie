@@ -45,9 +45,10 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(labelday);
             Name = "UserControlEditVisit";
-            Size = new Size(123, 55);
+            Size = new Size(121, 53);
             Load += UserControlEditVisit_Load;
             Click += UserControlEditVisit_Click;
             ResumeLayout(false);
