@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             pnlSideMenu = new Panel();
+            pnlMedicalVisitSubmenu = new Panel();
+            btnMedicalVisitEditAppoitment = new Button();
+            btnMedicalVisitAdd = new Button();
+            btnMedicalVisitList = new Button();
+            btnMedicalVisit = new Button();
             pnlPatientSubmenu = new Panel();
             btnPatientEditPatientData = new Button();
             btnPatientFilterData = new Button();
@@ -69,6 +74,7 @@
             pnlTitle = new Panel();
             labelTitle = new Label();
             pnlSideMenu.SuspendLayout();
+            pnlMedicalVisitSubmenu.SuspendLayout();
             pnlPatientSubmenu.SuspendLayout();
             pnlDoctorPanelSubmenu.SuspendLayout();
             pnlCalendarSubMenu.SuspendLayout();
@@ -85,6 +91,8 @@
             // 
             pnlSideMenu.AutoScroll = true;
             pnlSideMenu.BackColor = Color.FromArgb(23, 35, 49);
+            pnlSideMenu.Controls.Add(pnlMedicalVisitSubmenu);
+            pnlSideMenu.Controls.Add(btnMedicalVisit);
             pnlSideMenu.Controls.Add(pnlPatientSubmenu);
             pnlSideMenu.Controls.Add(btnPatient);
             pnlSideMenu.Controls.Add(pnlDoctorPanelSubmenu);
@@ -109,6 +117,100 @@
             pnlSideMenu.Size = new Size(250, 1061);
             pnlSideMenu.TabIndex = 0;
             pnlSideMenu.Paint += pnlSideMenu_Paint;
+            // 
+            // pnlMedicalVisitSubmenu
+            // 
+            pnlMedicalVisitSubmenu.BackColor = Color.FromArgb(31, 47, 66);
+            pnlMedicalVisitSubmenu.Controls.Add(btnMedicalVisitEditAppoitment);
+            pnlMedicalVisitSubmenu.Controls.Add(btnMedicalVisitAdd);
+            pnlMedicalVisitSubmenu.Controls.Add(btnMedicalVisitList);
+            pnlMedicalVisitSubmenu.Dock = DockStyle.Top;
+            pnlMedicalVisitSubmenu.Location = new Point(0, 1226);
+            pnlMedicalVisitSubmenu.Name = "pnlMedicalVisitSubmenu";
+            pnlMedicalVisitSubmenu.Size = new Size(233, 126);
+            pnlMedicalVisitSubmenu.TabIndex = 19;
+            // 
+            // btnMedicalVisitEditAppoitment
+            // 
+            btnMedicalVisitEditAppoitment.BackColor = Color.FromArgb(0, 0, 0, 0);
+            btnMedicalVisitEditAppoitment.Dock = DockStyle.Top;
+            btnMedicalVisitEditAppoitment.FlatAppearance.BorderSize = 0;
+            btnMedicalVisitEditAppoitment.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 189, 241);
+            btnMedicalVisitEditAppoitment.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 189, 241);
+            btnMedicalVisitEditAppoitment.FlatStyle = FlatStyle.Flat;
+            btnMedicalVisitEditAppoitment.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnMedicalVisitEditAppoitment.ForeColor = Color.WhiteSmoke;
+            btnMedicalVisitEditAppoitment.Location = new Point(0, 80);
+            btnMedicalVisitEditAppoitment.Name = "btnMedicalVisitEditAppoitment";
+            btnMedicalVisitEditAppoitment.Padding = new Padding(35, 0, 0, 0);
+            btnMedicalVisitEditAppoitment.Size = new Size(233, 40);
+            btnMedicalVisitEditAppoitment.TabIndex = 2;
+            btnMedicalVisitEditAppoitment.Tag = "List";
+            btnMedicalVisitEditAppoitment.Text = "Edit appoitment";
+            btnMedicalVisitEditAppoitment.TextAlign = ContentAlignment.MiddleLeft;
+            btnMedicalVisitEditAppoitment.UseVisualStyleBackColor = false;
+            btnMedicalVisitEditAppoitment.Click += btnMedicalVisitEditAppoitment_Click;
+            // 
+            // btnMedicalVisitAdd
+            // 
+            btnMedicalVisitAdd.BackColor = Color.FromArgb(0, 0, 0, 0);
+            btnMedicalVisitAdd.Dock = DockStyle.Top;
+            btnMedicalVisitAdd.FlatAppearance.BorderSize = 0;
+            btnMedicalVisitAdd.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 189, 241);
+            btnMedicalVisitAdd.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 189, 241);
+            btnMedicalVisitAdd.FlatStyle = FlatStyle.Flat;
+            btnMedicalVisitAdd.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnMedicalVisitAdd.ForeColor = Color.WhiteSmoke;
+            btnMedicalVisitAdd.Location = new Point(0, 40);
+            btnMedicalVisitAdd.Name = "btnMedicalVisitAdd";
+            btnMedicalVisitAdd.Padding = new Padding(35, 0, 0, 0);
+            btnMedicalVisitAdd.Size = new Size(233, 40);
+            btnMedicalVisitAdd.TabIndex = 1;
+            btnMedicalVisitAdd.Tag = "Add";
+            btnMedicalVisitAdd.Text = "Add";
+            btnMedicalVisitAdd.TextAlign = ContentAlignment.MiddleLeft;
+            btnMedicalVisitAdd.UseVisualStyleBackColor = false;
+            btnMedicalVisitAdd.Click += btnMedicalVisitAdd_Click;
+            // 
+            // btnMedicalVisitList
+            // 
+            btnMedicalVisitList.BackColor = Color.FromArgb(0, 0, 0, 0);
+            btnMedicalVisitList.Dock = DockStyle.Top;
+            btnMedicalVisitList.FlatAppearance.BorderSize = 0;
+            btnMedicalVisitList.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 189, 241);
+            btnMedicalVisitList.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 189, 241);
+            btnMedicalVisitList.FlatStyle = FlatStyle.Flat;
+            btnMedicalVisitList.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnMedicalVisitList.ForeColor = Color.WhiteSmoke;
+            btnMedicalVisitList.Location = new Point(0, 0);
+            btnMedicalVisitList.Name = "btnMedicalVisitList";
+            btnMedicalVisitList.Padding = new Padding(35, 0, 0, 0);
+            btnMedicalVisitList.Size = new Size(233, 40);
+            btnMedicalVisitList.TabIndex = 0;
+            btnMedicalVisitList.Tag = "List";
+            btnMedicalVisitList.Text = "List";
+            btnMedicalVisitList.TextAlign = ContentAlignment.MiddleLeft;
+            btnMedicalVisitList.UseVisualStyleBackColor = false;
+            btnMedicalVisitList.Click += btnMedicalVisitList_Click;
+            // 
+            // btnMedicalVisit
+            // 
+            btnMedicalVisit.BackColor = Color.FromArgb(23, 35, 49);
+            btnMedicalVisit.Dock = DockStyle.Top;
+            btnMedicalVisit.FlatAppearance.BorderSize = 0;
+            btnMedicalVisit.FlatStyle = FlatStyle.Flat;
+            btnMedicalVisit.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnMedicalVisit.ForeColor = Color.WhiteSmoke;
+            btnMedicalVisit.Location = new Point(0, 1181);
+            btnMedicalVisit.Name = "btnMedicalVisit";
+            btnMedicalVisit.Padding = new Padding(10, 0, 0, 0);
+            btnMedicalVisit.Size = new Size(233, 45);
+            btnMedicalVisit.TabIndex = 18;
+            btnMedicalVisit.Tag = "Calendar";
+            btnMedicalVisit.Text = "Medical Visit";
+            btnMedicalVisit.TextAlign = ContentAlignment.MiddleLeft;
+            btnMedicalVisit.UseVisualStyleBackColor = false;
+            btnMedicalVisit.Click += btnMedicalVisit_Click;
             // 
             // pnlPatientSubmenu
             // 
@@ -503,7 +605,7 @@
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnLogout.ForeColor = Color.WhiteSmoke;
-            btnLogout.Location = new Point(0, 1181);
+            btnLogout.Location = new Point(0, 1352);
             btnLogout.Name = "btnLogout";
             btnLogout.Padding = new Padding(10, 0, 0, 0);
             btnLogout.Size = new Size(233, 44);
@@ -794,6 +896,7 @@
             Name = "FormMain";
             Text = "Medical clinic";
             pnlSideMenu.ResumeLayout(false);
+            pnlMedicalVisitSubmenu.ResumeLayout(false);
             pnlPatientSubmenu.ResumeLayout(false);
             pnlDoctorPanelSubmenu.ResumeLayout(false);
             pnlCalendarSubMenu.ResumeLayout(false);
@@ -850,5 +953,10 @@
         private Button btnPatientAdd;
         private Button btnPatientList;
         private Button btnPatientEditPatientData;
+        private Panel pnlMedicalVisitSubmenu;
+        private Button btnMedicalVisitEditAppoitment;
+        private Button btnMedicalVisitAdd;
+        private Button btnMedicalVisitList;
+        private Button btnMedicalVisit;
     }
 }

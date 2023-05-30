@@ -3,6 +3,7 @@ using Administracja.FormsCalendar;
 using Administracja.FormsDoctor;
 using Patient_Handling;
 using Recepcja;
+using Recepcja.Forms;
 
 namespace WinFormsApp1
 {
@@ -27,6 +28,7 @@ namespace WinFormsApp1
             pnlCalendarSubMenu.Visible = false;
             pnlRoleSubmenu.Visible = false;
             pnlPatientSubmenu.Visible = false;
+            pnlMedicalVisitSubmenu.Visible = false;
         }
 
 
@@ -54,6 +56,9 @@ namespace WinFormsApp1
 
             if (pnlPatientSubmenu.Visible == true)
                 pnlPatientSubmenu.Visible = false;
+
+            if (pnlMedicalVisitSubmenu.Visible == true)
+                pnlMedicalVisitSubmenu.Visible = false;
         }
 
         private void showSubMenu(Panel subMenu)
@@ -407,6 +412,47 @@ namespace WinFormsApp1
         private void btnPatientEditPatientData_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnMedicalVisit_Click(object sender, EventArgs e)
+        {
+            showSubMenu(pnlMedicalVisitSubmenu);
+        }
+
+        private void btnMedicalVisitList_Click(object sender, EventArgs e)
+        {
+            ZarzadzanieWizytami zarzadzaniewizytami = new ZarzadzanieWizytami();
+            zarzadzaniewizytami.TopLevel = false;
+            zarzadzaniewizytami.FormBorderStyle = FormBorderStyle.None;
+            zarzadzaniewizytami.Dock = DockStyle.Fill;
+            pnlChildForm.Controls.Add(zarzadzaniewizytami);
+            pnlChildForm.Tag = zarzadzaniewizytami;
+            zarzadzaniewizytami.BringToFront();
+            zarzadzaniewizytami.Show();
+        }
+
+        private void btnMedicalVisitAdd_Click(object sender, EventArgs e)
+        {
+            FormSelectPatientToVisit add = new FormSelectPatientToVisit();
+            add.TopLevel = false;
+            add.FormBorderStyle = FormBorderStyle.None;
+            add.Dock = DockStyle.Fill;
+            pnlChildForm.Controls.Add(add);
+            pnlChildForm.Tag = add;
+            add.BringToFront();
+            add.Show();
+        }
+
+        private void btnMedicalVisitEditAppoitment_Click(object sender, EventArgs e)
+        {
+            EditAppointment editAppointment = new EditAppointment();
+            editAppointment.TopLevel = false;
+            editAppointment.FormBorderStyle = FormBorderStyle.None;
+            editAppointment.Dock = DockStyle.Fill;
+            pnlChildForm.Controls.Add(editAppointment);
+            pnlChildForm.Tag = editAppointment;
+            editAppointment.BringToFront();
+            editAppointment.Show();
         }
     }
 }
