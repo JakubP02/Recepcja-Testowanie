@@ -47,16 +47,18 @@
             textBox_form_filter_data_residential_adress = new TextBox();
             dataGridView_patients = new DataGridView();
             groupBox1 = new GroupBox();
+            groupBox4 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)numericUpDown_form_filter_data_age_from).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown_form_filter_data_age_to).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView_patients).BeginInit();
             groupBox1.SuspendLayout();
+            groupBox4.SuspendLayout();
             SuspendLayout();
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(31, 329);
+            label6.Location = new Point(84, 329);
             label6.Name = "label6";
             label6.Size = new Size(38, 15);
             label6.TabIndex = 26;
@@ -65,7 +67,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(31, 241);
+            label5.Location = new Point(67, 241);
             label5.Name = "label5";
             label5.Size = new Size(72, 15);
             label5.TabIndex = 25;
@@ -74,7 +76,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(31, 197);
+            label4.Location = new Point(60, 197);
             label4.Name = "label4";
             label4.Size = new Size(86, 15);
             label4.TabIndex = 24;
@@ -83,7 +85,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(31, 63);
+            label2.Location = new Point(72, 63);
             label2.Name = "label2";
             label2.Size = new Size(63, 15);
             label2.TabIndex = 22;
@@ -92,7 +94,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(32, 19);
+            label1.Location = new Point(71, 19);
             label1.Name = "label1";
             label1.Size = new Size(64, 15);
             label1.TabIndex = 21;
@@ -100,21 +102,21 @@
             // 
             // textBox_form_filter_data_social_security_number
             // 
-            textBox_form_filter_data_social_security_number.Location = new Point(31, 347);
+            textBox_form_filter_data_social_security_number.Location = new Point(23, 347);
             textBox_form_filter_data_social_security_number.Name = "textBox_form_filter_data_social_security_number";
             textBox_form_filter_data_social_security_number.Size = new Size(160, 23);
             textBox_form_filter_data_social_security_number.TabIndex = 20;
             // 
             // textBox_form_filter_data_adress_email
             // 
-            textBox_form_filter_data_adress_email.Location = new Point(32, 259);
+            textBox_form_filter_data_adress_email.Location = new Point(23, 259);
             textBox_form_filter_data_adress_email.Name = "textBox_form_filter_data_adress_email";
             textBox_form_filter_data_adress_email.Size = new Size(160, 23);
             textBox_form_filter_data_adress_email.TabIndex = 19;
             // 
             // textBox_form_filter_data_phone_number
             // 
-            textBox_form_filter_data_phone_number.Location = new Point(31, 215);
+            textBox_form_filter_data_phone_number.Location = new Point(23, 215);
             textBox_form_filter_data_phone_number.Name = "textBox_form_filter_data_phone_number";
             textBox_form_filter_data_phone_number.Size = new Size(160, 23);
             textBox_form_filter_data_phone_number.TabIndex = 18;
@@ -128,21 +130,21 @@
             // 
             // textBox_form_filter_data_last_name
             // 
-            textBox_form_filter_data_last_name.Location = new Point(32, 81);
+            textBox_form_filter_data_last_name.Location = new Point(23, 81);
             textBox_form_filter_data_last_name.Name = "textBox_form_filter_data_last_name";
             textBox_form_filter_data_last_name.Size = new Size(160, 23);
             textBox_form_filter_data_last_name.TabIndex = 16;
             // 
             // textBox_form_filter_data_First_name
             // 
-            textBox_form_filter_data_First_name.Location = new Point(31, 37);
+            textBox_form_filter_data_First_name.Location = new Point(23, 37);
             textBox_form_filter_data_First_name.Name = "textBox_form_filter_data_First_name";
             textBox_form_filter_data_First_name.Size = new Size(160, 23);
             textBox_form_filter_data_First_name.TabIndex = 15;
             // 
             // button_filter_patient_form_data
             // 
-            button_filter_patient_form_data.Location = new Point(31, 376);
+            button_filter_patient_form_data.Location = new Point(22, 388);
             button_filter_patient_form_data.Name = "button_filter_patient_form_data";
             button_filter_patient_form_data.Size = new Size(160, 23);
             button_filter_patient_form_data.TabIndex = 14;
@@ -178,7 +180,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(31, 285);
+            label9.Location = new Point(53, 285);
             label9.Name = "label9";
             label9.Size = new Size(100, 15);
             label9.TabIndex = 32;
@@ -186,7 +188,7 @@
             // 
             // textBox_form_filter_data_residential_adress
             // 
-            textBox_form_filter_data_residential_adress.Location = new Point(31, 303);
+            textBox_form_filter_data_residential_adress.Location = new Point(23, 303);
             textBox_form_filter_data_residential_adress.Name = "textBox_form_filter_data_residential_adress";
             textBox_form_filter_data_residential_adress.Size = new Size(160, 23);
             textBox_form_filter_data_residential_adress.TabIndex = 31;
@@ -197,14 +199,14 @@
             dataGridView_patients.AllowUserToResizeRows = false;
             dataGridView_patients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_patients.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView_patients.Location = new Point(210, 35);
+            dataGridView_patients.Location = new Point(208, 35);
             dataGridView_patients.MultiSelect = false;
             dataGridView_patients.Name = "dataGridView_patients";
             dataGridView_patients.RowHeadersVisible = false;
             dataGridView_patients.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridView_patients.RowTemplate.Height = 25;
             dataGridView_patients.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView_patients.Size = new Size(994, 364);
+            dataGridView_patients.Size = new Size(901, 364);
             dataGridView_patients.TabIndex = 33;
             dataGridView_patients.VirtualMode = true;
             // 
@@ -214,33 +216,43 @@
             groupBox1.Controls.Add(numericUpDown_form_filter_data_age_to);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label8);
-            groupBox1.Location = new Point(22, 109);
+            groupBox1.Location = new Point(12, 109);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(182, 85);
             groupBox1.TabIndex = 34;
             groupBox1.TabStop = false;
             groupBox1.Text = "Age";
             // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(label1);
+            groupBox4.Controls.Add(groupBox1);
+            groupBox4.Controls.Add(button_filter_patient_form_data);
+            groupBox4.Controls.Add(dataGridView_patients);
+            groupBox4.Controls.Add(textBox_form_filter_data_First_name);
+            groupBox4.Controls.Add(label9);
+            groupBox4.Controls.Add(textBox_form_filter_data_last_name);
+            groupBox4.Controls.Add(textBox_form_filter_data_residential_adress);
+            groupBox4.Controls.Add(textBox_form_filter_data_phone_number);
+            groupBox4.Controls.Add(label6);
+            groupBox4.Controls.Add(textBox_form_filter_data_adress_email);
+            groupBox4.Controls.Add(label5);
+            groupBox4.Controls.Add(textBox_form_filter_data_social_security_number);
+            groupBox4.Controls.Add(label4);
+            groupBox4.Controls.Add(label2);
+            groupBox4.Location = new Point(12, 12);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(1142, 427);
+            groupBox4.TabIndex = 35;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "Filter data";
+            // 
             // Form_filter_data
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1216, 435);
-            Controls.Add(groupBox1);
-            Controls.Add(dataGridView_patients);
-            Controls.Add(label9);
-            Controls.Add(textBox_form_filter_data_residential_adress);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(textBox_form_filter_data_social_security_number);
-            Controls.Add(textBox_form_filter_data_adress_email);
-            Controls.Add(textBox_form_filter_data_phone_number);
-            Controls.Add(textBox_form_filter_data_last_name);
-            Controls.Add(textBox_form_filter_data_First_name);
-            Controls.Add(button_filter_patient_form_data);
+            Controls.Add(groupBox4);
             Name = "Form_filter_data";
             Text = "Filter data";
             Load += Form_filter_data_Load;
@@ -249,8 +261,9 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView_patients).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -273,5 +286,6 @@
         private TextBox textBox_form_filter_data_residential_adress;
         private DataGridView dataGridView_patients;
         private GroupBox groupBox1;
+        private GroupBox groupBox4;
     }
 }

@@ -13,7 +13,7 @@ namespace Recepcja
         public Form_reception_menu()
         {
             InitializeComponent();
- 
+
             DatabaseConnection databaseConnection = new DatabaseConnection();
             databaseConnection.LoadDataIntoDataGridView(dataGridView1, "Patients");
 
@@ -53,7 +53,7 @@ namespace Recepcja
 
         private void button_menu_activate_patient_Click(object sender, EventArgs e)
         {
-           
+
 
             int selcetedPatientId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
             int selcetedPatientStatus = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Status"].Value);
@@ -81,6 +81,9 @@ namespace Recepcja
 
         }
 
-   
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

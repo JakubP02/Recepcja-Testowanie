@@ -411,7 +411,14 @@ namespace WinFormsApp1
 
         private void btnPatientEditPatientData_Click(object sender, EventArgs e)
         {
-
+            Form_edit_patient formeditpatient = new Form_edit_patient();
+            formeditpatient.TopLevel = false;
+            formeditpatient.FormBorderStyle = FormBorderStyle.None;
+            formeditpatient.Dock = DockStyle.Fill;
+            pnlChildForm.Controls.Add(formeditpatient);
+            pnlChildForm.Tag = formeditpatient;
+            formeditpatient.BringToFront();
+            formeditpatient.Show();
         }
 
         private void btnMedicalVisit_Click(object sender, EventArgs e)

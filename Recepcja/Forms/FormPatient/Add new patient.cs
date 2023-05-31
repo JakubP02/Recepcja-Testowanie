@@ -178,42 +178,42 @@ namespace Patient_Handling
                   string.IsNullOrEmpty(newPatient.EmailAddress) ||
                   string.IsNullOrEmpty(newPatient.ResidentialAddress) ||
                   string.IsNullOrEmpty(newPatient.Pesel))
-             {
-                 MessageBox.Show("Wszystkie pola muszą być wypełnione.");
-                 return;
-             }
+            {
+                MessageBox.Show("Wszystkie pola muszą być wypełnione.");
+                return;
+            }
 
-             if (!Regex.IsMatch(newPatient.PhoneNumber, @"^\+?[0-9]{3}-?[0-9]{3}-?[0-9]{3}$"))
-             {
-                 MessageBox.Show("Numer telefonu musi składać się z dziewięciu cyfr.");
-                 return;
-             }
+            if (!Regex.IsMatch(newPatient.PhoneNumber, @"^\+?[0-9]{3}-?[0-9]{3}-?[0-9]{3}$"))
+            {
+                MessageBox.Show("Numer telefonu musi składać się z dziewięciu cyfr.");
+                return;
+            }
 
-             if (!Regex.IsMatch(newPatient.EmailAddress, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-             {
-                 MessageBox.Show("Adres email jest nieprawidłowy.");
-                 return;
-             }
+            if (!Regex.IsMatch(newPatient.EmailAddress, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                MessageBox.Show("Adres email jest nieprawidłowy.");
+                return;
+            }
 
-             if (string.IsNullOrEmpty(newPatient.Pesel))
-             {
-                 MessageBox.Show("Numer PESEL nie może być pusty.");
-                 return;
-             }
+            if (string.IsNullOrEmpty(newPatient.Pesel))
+            {
+                MessageBox.Show("Numer PESEL nie może być pusty.");
+                return;
+            }
 
-             if (newPatient.Pesel.Length != 11)
-             {
-                 MessageBox.Show("Numer PESEL musi składać się z 11 cyfr.");
-                 return;
-             }
-             if (!IsValidPesel(newPatient.Pesel, DateTime.Parse(dateTimePicker1.Text), comboBox_gender.SelectedItem.ToString()))
-             {
+            if (newPatient.Pesel.Length != 11)
+            {
+                MessageBox.Show("Numer PESEL musi składać się z 11 cyfr.");
+                return;
+            }
+            if (!IsValidPesel(newPatient.Pesel, DateTime.Parse(dateTimePicker1.Text), comboBox_gender.SelectedItem.ToString()))
+            {
 
-                 MessageBox.Show("Pesel nie zgadza się z datą urodzenia!");
-                 return;
-             }
+                MessageBox.Show("Pesel nie zgadza się z datą urodzenia!");
+                return;
+            }
 
-            
+
 
 
             DatabaseConnection databaseConnection = new DatabaseConnection();
@@ -226,6 +226,11 @@ namespace Patient_Handling
         }
 
         private void comboBox_gender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
         {
 
         }

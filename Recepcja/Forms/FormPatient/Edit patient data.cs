@@ -42,7 +42,7 @@ namespace Patient_Handling
 
         private void button_edit_patient_form_Click(object sender, EventArgs e)
         {
-          
+
 
             Patient patient = new Patient()
             {
@@ -102,7 +102,7 @@ namespace Patient_Handling
 
         private void Form_edit_patient_Load(object sender, EventArgs e)
         {
-    
+
         }
 
         private void dataGridView_patients_CellContentClick(object sender, DataGridViewCellEventArgs e)
